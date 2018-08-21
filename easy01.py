@@ -8,7 +8,6 @@ def twoSum(nums, target):
                     s.append(j)
                     return s
 
-
 def reverse(x):	
 	if x > 0:	
 		x = str(x)	
@@ -33,6 +32,9 @@ def reverse(x):
 		return x
 	else:
 		return 0 
+
+def mySqrt(x):
+	return int(x**0.5)
 
 
 if __name__ == '__main__':
