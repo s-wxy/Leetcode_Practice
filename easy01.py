@@ -36,9 +36,16 @@ def reverse(x):
 def mySqrt(x):
 	return int(x**0.5)
 
+def strStr(haystack, needle):
+	if needle in haystack:
+		return haystack.find(needle)
+	else:
+		return -1
+
 
 if __name__ == '__main__':
 
 	#print twoSum([2, 7, 11, 15], 9)
 	#print reverse(1534236469)
+	print strStr("hello", "ll")
 	
