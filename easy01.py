@@ -38,5 +38,5 @@ def reverse(x):
 if __name__ == '__main__':
 
 	#print twoSum([2, 7, 11, 15], 9)
-	print reverse(1534236469)
+	#print reverse(1534236469)
 	
