@@ -47,11 +47,29 @@ def longestCommonPrefix(strs):
 				return s1[:i]
 		return s1
 
+def isValid(s):
+	stack = []
+	dict = {"]":"[", "}":"{", ")":"("}
+	for char in s:
+		if char in dict.values():
+			stack.append(char)
+		elif char in dict.keys():
+			if stack == [] or dict[char] != stack.pop():
+				return False
+		else:
+			return False
+	if stack == []:
+		return True
+	else:
+		return False
+
 
 if __name__ == '__main__':
 
 	#print twoSum([2, 7, 11, 15], 9)
 	#print reverse(1534236469)
 	#print strStr("hello", "ll")
-	print longestCommonPrefix(["dog","racecar","car"])
+	#print longestCommonPrefix(["dog","racecar","car"])
+
+	print isValid("((")
 	
