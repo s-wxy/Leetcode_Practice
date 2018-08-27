@@ -35,7 +35,7 @@ def plusOne(digits):
 
 	return n_digits[::-1]
 
-# 12 -r, using recursion
+# 12_using recursion
 def plusOne_r(digits):
 
 	if len(digits) == 0:
@@ -47,9 +47,28 @@ def plusOne_r(digits):
 		digits[-1] += 1
 	return digits
 
+# 13 Roman to Integer
+def romanToInt(s):
+	roman = {'M': 1000,'D': 500 ,'C': 100,'L': 50,'X': 10,'V': 5,'I': 1}
+	z = 0
+	for i in range(0, len(s) - 1):
+		if roman[s[i]] < roman[s[i+1]]:
+			z -= roman[s[i]]
+		else:
+			z += roman[s[i]]
+	return z + roman[s[-1]]
+
+# 14 Jeswels and Stones
+# map() function - applying the given function to each item of a given iterable
+def numJewelsInStones(J, S):
+	return sum(map(J.count, S))
+	# return len([c for c in S if c in J])
 
 
 if __name__ == '__main__':
 
 	#print searchInsert([1,3,5,6],7)
 	plusOne([1,2,3,0])
+	romanToInt("III")
+	print numJewelsInStones("aA","aaaaAAC")
+
