@@ -64,6 +64,9 @@ def numJewelsInStones(J, S):
 	return sum(map(J.count, S))
 	# return len([c for c in S if c in J])
 
+# 15 To Lower Case
+def toLowerCase(str):
+	return str.lower()
 
 if __name__ == '__main__':
 
