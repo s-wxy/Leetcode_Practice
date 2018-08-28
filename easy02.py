@@ -84,7 +84,21 @@ def hammingDistance(x, y):
 #Each bit of the output is the same as the corresponding bit in x if that bit in y is 0, 
 #and it's the complement of the bit in x if that bit in y is 1
 
-# 17 
+# 17 Unique Morse Code Words
+def uniqueMorseRepresentations(words):
+
+	dict = {"a":".-","b":"-...","c":"-.-.","d":"-..","e":".","f":"..-.","g":"--.","h":"....","i":"..", \
+	"j":".---","k":"-.-","l":".-..","m":"--","n":"-.","o":"---","p":".--.","q":"--.-","r":".-.","s":"...", \
+	"t":"-","u":"..-","v":"...-","w":".--","x":"-..-","y":"-.--","z":"--.."}
+	mors = set()
+	for w in words:
+		mor = ""
+		for l in w:
+			mor += dict[l]
+		mors.add(mor)
+	return len(mors)
+
+
 
 
 if __name__ == '__main__':
@@ -93,5 +107,6 @@ if __name__ == '__main__':
 	# plusOne([1,2,3,0])
 	# romanToInt("III")
 	# print numJewelsInStones("aA","aaaaAAC")
-	print hammingDistance(1,4)
+	# print hammingDistance(1,4)
+	print uniqueMorseRepresentations(["gin", "zen", "gig", "msg"])
 
