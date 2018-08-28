@@ -68,10 +68,30 @@ def numJewelsInStones(J, S):
 def toLowerCase(str):
 	return str.lower()
 
+# 16 Hamming Distance, when x and y have same distance 
+def hammingDistance_s(x, y):
+	diff  = 0 
+	for chx, chy in zip (bin(x),bin(y)):
+		if chx != chy:
+			diff += 1
+	return diff
+
+def hammingDistance(x, y):
+	return bin(x^y).count('1')
+
+# x ^ y (bitwise operator, https://wiki.python.org/moin/BitwiseOperators)	
+#Does a "bitwise exclusive or". 
+#Each bit of the output is the same as the corresponding bit in x if that bit in y is 0, 
+#and it's the complement of the bit in x if that bit in y is 1
+
+# 17 
+
+
 if __name__ == '__main__':
 
 	#print searchInsert([1,3,5,6],7)
-	plusOne([1,2,3,0])
-	romanToInt("III")
-	print numJewelsInStones("aA","aaaaAAC")
+	# plusOne([1,2,3,0])
+	# romanToInt("III")
+	# print numJewelsInStones("aA","aaaaAAC")
+	print hammingDistance(1,4)
 
