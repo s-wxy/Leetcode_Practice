@@ -86,7 +86,6 @@ def hammingDistance(x, y):
 
 # 17 Unique Morse Code Words
 def uniqueMorseRepresentations(words):
-
 	dict = {"a":".-","b":"-...","c":"-.-.","d":"-..","e":".","f":"..-.","g":"--.","h":"....","i":"..", \
 	"j":".---","k":"-.-","l":".-..","m":"--","n":"-.","o":"---","p":".--.","q":"--.-","r":".-.","s":"...", \
 	"t":"-","u":"..-","v":"...-","w":".--","x":"-..-","y":"-.--","z":"--.."}
@@ -98,7 +97,29 @@ def uniqueMorseRepresentations(words):
 		mors.add(mor)
 	return len(mors)
 
+# 18 Flipping an Image
+def flipAndInvertImage_l(A):
+	new = []
+	for p in A:
+		p = p[::-1]
+		new_p = []
+		for i in p:
+			i = 1-i
+			new_p.append(i)
+		new.append(new_p)
+	return new
 
+def flipAndInvertImage(A):
+	return [[1-i for i in row[::-1]] for row in A]
+
+# 19 Judge Route Circle
+def judgeCircle(moves):
+	if moves.count("U") == moves.count("D") and moves.count("L") == moves.count("R"):
+		return True
+	else:
+		return False
+
+# 20 Merge Two Binary Trees
 
 
 if __name__ == '__main__':
@@ -108,5 +129,7 @@ if __name__ == '__main__':
 	# romanToInt("III")
 	# print numJewelsInStones("aA","aaaaAAC")
 	# print hammingDistance(1,4)
-	print uniqueMorseRepresentations(["gin", "zen", "gig", "msg"])
+	# print uniqueMorseRepresentations(["gin", "zen", "gig", "msg"])
+	# print flipAndInvertImage_l([[1,1,0],[1,0,1],[0,0,0]])
+	print judgeCircle("U")
 
