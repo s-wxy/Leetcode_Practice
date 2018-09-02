@@ -57,7 +57,61 @@ def selfDividingNumbers(left,right):
 	# 			result.append(i)
 	# return result
 
+# 24, Transpose Matrix 
+def transpose(A):
+	# zip(*A)
+
+	# initialize output matrix
+	# t=[[0]*len(A) for j in range(len(A[0]))]
+	# for i in range(len(A)):
+		# for j in range(len(A[0])):
+			# t[j][i]=A[i][j]               
+	# return t
+
+	lA = len(A)
+	lN = len(A[0])
+	out = []
+	for i in range(lN):
+		new = []
+		for j in range(lA):
+			new.append(A[j][i])
+		out.append(new)
+	return out 	
+
+# 25, Middle of the Linked List 
+def middleNode(head):
+	tmp = head
+	while tmp and tmp.next:
+		head = head.next
+		tmp = tmp.next.next
+	return head
+
+	# set two pointers, one is head with one step each iteration 
+	# the other is tmp, with two steps each iteration 
+	# when tmp reach the end, head just reaches the half of it 
+
+	# if head == None:
+	# 	return head
+	# if head.next == None:
+	# 	return head
+	# p = head
+	# q = head
+	# while q.next:
+	# 	p = p.next
+	# 	q = q.next
+	# 	if q.next != None:
+	# 		q = q.next
+	# return p
+
+
 
 if __name__ == '__main__':
 
 	print selfDividingNumbers(1,22)
+
+
+
+
+
+
+
