@@ -103,11 +103,40 @@ def middleNode(head):
 	# 		q = q.next
 	# return p
 
+# 26, Number of lines To Write String - 
+# like this one, especially the way how to apply dictionary 
+def numberOfLines(widths, S):
+	l2w = dict(zip(list('abcdefghijklmnopqrstuvwxyz'),widths))
+	# generate a list of corresbonding width 
+	S_widths = [l2w[s] for s in S]
+	rows = 1
+	start = 0 
+	for i, w in enumerate(S_widths):
+		if sum(S_widths[start:i+1]) > 100:
+			rows += 1
+			start = i 
+	last_row = sum(S_widths[start:])
+	return [rows, last_row]
 
+	# using ord(), return ASCII, overlaying sum of the line space
+	num_lines = 1
+	size_of_line = 0
+	idx_offset = ord('a')
+	for char in S:
+		idx = ord(char) - idx_offset
+		width = widths[idx]
+		proposed_size_of_line = size_of_line + width
+		if proposed_size_of_line <= 100:
+			size_of_line = proposed_size_of_line
+		else:
+			num_lines += 1
+			size_of_line = width        
+	return [num_lines,size_of_line]
 
 if __name__ == '__main__':
 
-	print selfDividingNumbers(1,22)
+	# print selfDividingNumbers(1,22)
+	print numberOfLines([4,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10],"bbbcccdddaaa")
 
 
 
