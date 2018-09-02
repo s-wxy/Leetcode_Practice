@@ -119,25 +119,44 @@ def numberOfLines(widths, S):
 	return [rows, last_row]
 
 	# using ord(), return ASCII, overlaying sum of the line space
-	num_lines = 1
-	size_of_line = 0
-	idx_offset = ord('a')
-	for char in S:
-		idx = ord(char) - idx_offset
-		width = widths[idx]
-		proposed_size_of_line = size_of_line + width
-		if proposed_size_of_line <= 100:
-			size_of_line = proposed_size_of_line
-		else:
-			num_lines += 1
-			size_of_line = width        
-	return [num_lines,size_of_line]
+	# num_lines = 1
+	# size_of_line = 0
+	# idx_offset = ord('a')
+	# for char in S:
+	# 	idx = ord(char) - idx_offset
+	# 	width = widths[idx]
+	# 	proposed_size_of_line = size_of_line + width
+	# 	if proposed_size_of_line <= 100:
+	# 		size_of_line = proposed_size_of_line
+	# 	else:
+	# 		num_lines += 1
+	# 		size_of_line = width        
+	# return [num_lines,size_of_line]
+
+# 27, Leaf-Similar Trees 
+def leafSimilar(root1, root2):
+	# yield, different from return, can save the valu in memory 
+	# recursive use dfs function 
+	# all(), iterative judge every element if it is true 
+	def dfs(node):
+		if not node: return
+		if not node.left and not node.right: yield node.val
+		for i in dfs(node.left): yield i
+ 		for i in dfs(node.right): yield i
+	return all(a == b for a, b in itertools.izip_longest(dfs(root1), dfs(root2)))
+
+	# stringforward method, adding another function beside
+	return self.findleaf(root1) == self.findleaf(root2)
+def findleaf(self, root):
+	if not root: return []
+	if not (root.left or root.right): return [root.val]
+	return self.findleaf(root.left) + self.findleaf(root.right)
 
 if __name__ == '__main__':
 
 	# print selfDividingNumbers(1,22)
-	print numberOfLines([4,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10],"bbbcccdddaaa")
-
+	# print numberOfLines([4,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10],"bbbcccdddaaa")
+	print leafSimilar([3,5,1,6,2,9,8,null,null,7,4], [3,5,1,6,7,4,2,null,null,null,null,null,null,9,8])
 
 
 
