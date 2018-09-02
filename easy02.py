@@ -121,6 +121,8 @@ def judgeCircle(moves):
 
 # 20 Merge Two Binary Trees
 def mergeTrees(t1,t2):
+	
+	# method 1
 	if not t1 and not t2: return None
 	if t1:
 		v1, L1, R1 = t1.val, t1.left, t1.right
@@ -135,6 +137,7 @@ def mergeTrees(t1,t2):
 	node.right = self.mergeTrees(R1, R2)
 	return node
 
+	# method 2
 	# if t1==None:
 	# 	return t2
 	# elif t2==None:
