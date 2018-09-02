@@ -120,7 +120,29 @@ def judgeCircle(moves):
 		return False
 
 # 20 Merge Two Binary Trees
+def mergeTrees(t1,t2):
+	if not t1 and not t2: return None
+	if t1:
+		v1, L1, R1 = t1.val, t1.left, t1.right
+	else:
+		v1, L1, R1 = 0, None, None
+	if t2:
+		v2, L2, R2 = t2.val, t2.left, t2.right
+	else:
+		v2, L2, R2 = 0, None, None
+	node = TreeNode(v1+v2)
+	node.left = self.mergeTrees(L1, L2)
+	node.right = self.mergeTrees(R1, R2)
+	return node
 
+	# if t1==None:
+	# 	return t2
+	# elif t2==None:
+	# 	return t1
+	# t1.val+=t2.val
+	# t1.left=self.mergeTrees(t1.left, t2.left)
+	# t1.right=self.mergeTrees(t1.right, t2.right)
+	# return t1
 
 if __name__ == '__main__':
 
@@ -131,5 +153,5 @@ if __name__ == '__main__':
 	# print hammingDistance(1,4)
 	# print uniqueMorseRepresentations(["gin", "zen", "gig", "msg"])
 	# print flipAndInvertImage_l([[1,1,0],[1,0,1],[0,0,0]])
-	print judgeCircle("U")
+	# print judgeCircle("U")
 
