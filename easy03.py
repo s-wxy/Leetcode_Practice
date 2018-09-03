@@ -152,11 +152,49 @@ def findleaf(self, root):
 	if not (root.left or root.right): return [root.val]
 	return self.findleaf(root.left) + self.findleaf(root.right)
 
+# 28, Monotonic Array 
+def isMonotonic(A):
+	# cmp(), compare two variables (x,y), if x<y return -1, if x=y, return 0, if x>y return 1
+	return not {cmp(i, j) for i, j in zip(A, A[1:])} >= {1, -1}
+
+	# comapre each element from two ends
+	if len(A) < 2: return True 
+	l, r = 0, len(A) - 1
+	J = True if A[l] < A[r] else False 
+	while l < r: 
+		if J == True: 
+			# increading trend 
+			if A[l] > A[r] or A[l] > A[l+1] or A[r-1] > A[r]:
+				return False
+			l += 1
+			r -= 1
+		elif J == False: 
+			# decreasing trend 
+			if A[l] < A[r] or A[l] < A[l+1] or A[r-1] < A[r]:
+				return False
+			l += 1
+			r += 1
+	return True 
+
+	# using Flag
+	if len(A) <= 2: return True
+	Flag = None
+	for i in range(1,len(A)):
+		if A[i] != A[i-1] and Flag == None:
+			Flag = (A[i] > A[i-1])
+		if Flag:
+			temp = (A[i] >= A[i-1])
+			if temp != Flag: return False
+		elif Flag != None:
+			temp = (A[i] > A[i-1])
+			if temp != Flag: return False
+	return True
+
 if __name__ == '__main__':
 
 	# print selfDividingNumbers(1,22)
 	# print numberOfLines([4,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10],"bbbcccdddaaa")
-	print leafSimilar([3,5,1,6,2,9,8,null,null,7,4], [3,5,1,6,7,4,2,null,null,null,null,null,null,9,8])
+	# print leafSimilar([3,5,1,6,2,9,8,null,null,7,4], [3,5,1,6,7,4,2,null,null,null,null,null,null,9,8])
 
 
 
