@@ -190,13 +190,53 @@ def isMonotonic(A):
 			if temp != Flag: return False
 	return True
 
+# 29, Reverse Words in a String III
+def reverseWords(s):
+	out = ""
+	for w in s.split(' '):
+		w = w[::-1]
+		out = out + w + " "
+	return out[:-1]
+
+	# using join to add space 
+	return " ".join([ x[::-1] for x in s.split(" ") ])
+
+# 30, Reverse String II
+def reverseStr(s,k):
+	b = 0
+	e = 2*k
+	out = "" 
+	if len(s) <= k:
+		return s[::-1] 
+	else:
+		while e < len(s):
+			new = s[b:e][:k][::-1]
+			new = new + s[b:e][k:]
+			out += new 
+			b += 2*k
+			e += 2*k
+		print b
+		if b+k < len(s):
+			left = s[b:len(s)][:k][::-1]
+			left = left + s[b:len(s)][k:]
+			out += left
+		else:
+			out = out + s[b:len(s)][::-1]
+		return out 
+
+	s = list(s)
+	for i in xrange(0, len(s), 2*k):
+		s[i:i+k] = reversed(s[i:i+k])
+	return "".join(s)
+
+
 if __name__ == '__main__':
 
 	# print selfDividingNumbers(1,22)
 	# print numberOfLines([4,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10],"bbbcccdddaaa")
 	# print leafSimilar([3,5,1,6,2,9,8,null,null,7,4], [3,5,1,6,7,4,2,null,null,null,null,null,null,9,8])
-
-
+	# print reverseWords('ok haha')
+	print reverseStr("abcdefg", 2)
 
 
 
