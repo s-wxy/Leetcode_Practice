@@ -100,7 +100,23 @@ def subdomainVisits(cpdomains):
 			if d[i] == '.': c[d[i + 1:]] += int(n)
 	return ["%d %s" % (c[k], k) for k in c]
 
-# 36, 
+# 36, Keyboard Row 
+def findWords(words):
+	a = set("qwertyuiop")
+	b = set("asdfghjkl")
+	c = set("zxcvbnm")
+	out = []
+	words = list(words)
+	for word in words:
+		w = set(word.lower())
+		if a&w == w:
+			out.append(word)
+		if b&w == w:
+			out.append(word)
+		if c&w == w:
+			out.append(word)
+	return out 
+
 
 if __name__ == '__main__':
 
