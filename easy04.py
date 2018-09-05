@@ -117,12 +117,21 @@ def findWords(words):
 			out.append(word)
 	return out 
 
+# 37,  Groups of Special-Equivalent Strings
+def numSpecialEquivGroups(A):
+	B = set()
+	for w in list(A):
+		even = ''.join(sorted(w[0::2]))
+		odd = ''.join(sorted(w[1::2]))
+		B.add((even,odd))
+	return len(B)
 
 if __name__ == '__main__':
 
 	#print reverseVowels("hello")
 	#print findComplement(5)
-	print subdomainVisits(["900 google.mail.com", "50 mail.com"])
+	#print subdomainVisits(["900 google.mail.com", "50 mail.com"])
+	print numSpecialEquivGroups(["abcd","cdab","adcb","cbad"])
 
 
 
