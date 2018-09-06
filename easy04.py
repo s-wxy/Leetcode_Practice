@@ -126,16 +126,25 @@ def numSpecialEquivGroups(A):
 		B.add((even,odd))
 	return len(B)
 
-# 38，Shortest Distance to a Character 
-def 
+# 38, Shortest Distance to a Character
+def shortestToChar(S,C):
+	c_index = []
+	out = [0]*len(S)
+	for i,c in enumerate(S):
+		if c == C:
+			c_index.append(i)
+	for i,c in enumerate(S):
+		if c != C:
+			out[i] = min(list(map(lambda x: abs(x-i),c_index)))
+	return out 
 
 if __name__ == '__main__':
 
 	#print reverseVowels("hello")
 	#print findComplement(5)
 	#print subdomainVisits(["900 google.mail.com", "50 mail.com"])
-	print numSpecialEquivGroups(["abcd","cdab","adcb","cbad"])
-
+	#print numSpecialEquivGroups(["abcd","cdab","adcb","cbad"])
+	print shortestToChar("loveleetcode","e")
 
 
 
