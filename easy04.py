@@ -126,6 +126,9 @@ def numSpecialEquivGroups(A):
 		B.add((even,odd))
 	return len(B)
 
+# 38，Shortest Distance to a Character 
+def 
+
 if __name__ == '__main__':
 
 	#print reverseVowels("hello")
