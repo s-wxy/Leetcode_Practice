@@ -138,13 +138,38 @@ def shortestToChar(S,C):
 			out[i] = min(list(map(lambda x: abs(x-i),c_index)))
 	return out 
 
+# 39, Uncommon Words from Two Sentences
+def uncommonFromSentences(A, B):
+
+	words = {}
+	arr = A.split(" ") + B.split(" ")
+	out = []
+	for i in arr:
+		if i not in words:
+			words[i] = 0
+		words[i] += 1
+	for w,i in words.items():
+		if i == 1:
+			out.append(w)
+	return out
+
+	# should learn how to use one line to get result 
+	dic = {}
+	for s in A.split():
+		dic[s] = dic.get(s, 0) + 1
+	for s in B.split():
+		dic[s] = dic.get(s, 0) + 1
+	return [w for w in dic if dic[w] == 1]
+
+
 if __name__ == '__main__':
 
 	#print reverseVowels("hello")
 	#print findComplement(5)
 	#print subdomainVisits(["900 google.mail.com", "50 mail.com"])
 	#print numSpecialEquivGroups(["abcd","cdab","adcb","cbad"])
-	print shortestToChar("loveleetcode","e")
+	#print shortestToChar("loveleetcode","e")
+	print uncommonFromSentences("this apple is sweet","this apple is sour")
 
 
 
