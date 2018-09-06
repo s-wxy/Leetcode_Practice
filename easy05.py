@@ -9,7 +9,11 @@ def singleNumber(nums):
         if val == 1:
             return key
 	
-
+    # using bitwise
+	res = 0
+	for num in nums:
+		res ^= num
+	return res
 
 
 
