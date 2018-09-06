@@ -161,6 +161,17 @@ def uncommonFromSentences(A, B):
 		dic[s] = dic.get(s, 0) + 1
 	return [w for w in dic if dic[w] == 1]
 
+# 40, Find the Difference
+def findTheDifference(s, t):
+	s,t = sorted(s),sorted(t)
+	if s == t[:-1]:
+		return t[-1]
+	else:
+		for w in zip(s,t):
+			if w[0] != w[1]:
+				return w[1]
+
+
 
 if __name__ == '__main__':
 
@@ -169,8 +180,8 @@ if __name__ == '__main__':
 	#print subdomainVisits(["900 google.mail.com", "50 mail.com"])
 	#print numSpecialEquivGroups(["abcd","cdab","adcb","cbad"])
 	#print shortestToChar("loveleetcode","e")
-	print uncommonFromSentences("this apple is sweet","this apple is sour")
-
+	#print uncommonFromSentences("this apple is sweet","this apple is sour")
+	print findTheDifference("abcd","abecd")
 
 
 
