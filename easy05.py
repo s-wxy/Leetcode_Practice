@@ -1,6 +1,6 @@
 from collections import Counter
 
-#41, Single Number
+# 41, Single Number
 def singleNumber(nums):
     dic = {}
     for num in nums:
@@ -15,8 +15,19 @@ def singleNumber(nums):
 		res ^= num
 	return res
 
+# 42, Toeplitz Matrix
+def isToeplitzMatrix(m):
+	print len(m[0])
+	for i in range(len(m) - 1):
+		for j in range(len(m[0]) - 1):
+			if m[i][j] != m[i + 1][j + 1]:
+				return False
+	return True
+
+# 43， 
 
 
 if __name__ == '__main__':
 
-	print singleNumber([2,2,1])
+	#print singleNumber([2,2,1])
+	print isToeplitzMatrix([[1,2,3,4],[5,1,2,3],[9,5,1,2]])
