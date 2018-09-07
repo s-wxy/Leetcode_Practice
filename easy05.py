@@ -17,14 +17,22 @@ def singleNumber(nums):
 
 # 42, Toeplitz Matrix
 def isToeplitzMatrix(m):
-	print len(m[0])
 	for i in range(len(m) - 1):
 		for j in range(len(m[0]) - 1):
 			if m[i][j] != m[i + 1][j + 1]:
 				return False
 	return True
 
-# 43， 
+	# in one line
+	return all(m[i][j] == m[i+1][j+1] for i in range(len(m)-1) for j in range(len(m[0])-1))
+
+
+# 43， Distribute Candies
+def distributeCandies(candies):
+	return min(len(candies)/2, len(set(candies)))
+
+
+
 
 
 if __name__ == '__main__':
