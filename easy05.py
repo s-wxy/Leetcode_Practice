@@ -49,9 +49,28 @@ def nextGreaterElement(findNums, nums):
 				out.append(-1)
 	return out
 
-# 45，Nim Game
-def can WinNim(n):
+# 45, Nim Game
+def canWinNim(n):
 	return False if int(n % 4) == 0 else True
+
+# 46, Reshape the Matrix 
+def matrixReshape(nums,r,c):
+	if r*c != len(nums)*len(nums[0]):
+		return nums 
+	else:
+		out = []
+		temp = []
+		count = 0
+		for i in range(len(nums)):
+			for j in range(len(nums[0])):
+				temp.append(nums[i][j])
+				count += 1
+				if count == c:
+					out.append(temp)
+					temp = []
+					count = 0
+		return out 
+
 
 
 
@@ -59,7 +78,10 @@ if __name__ == '__main__':
 
 	#print singleNumber([2,2,1])
 	#print isToeplitzMatrix([[1,2,3,4],[5,1,2,3],[9,5,1,2]])
-	print nextGreaterElement([1,3,5,2,4],[6,5,4,3,2,1,7])
+	#print nextGreaterElement([1,3,5,2,4],[6,5,4,3,2,1,7])
+	print matrixReshape([[1,2,3],[4,5,6]],3,2)
+
+
 
 
 
