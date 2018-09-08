@@ -49,6 +49,12 @@ def nextGreaterElement(findNums, nums):
 				out.append(-1)
 	return out
 
+# 45，Nim Game
+def can WinNim(n):
+	return False if int(n % 4) == 0 else True
+
+
+
 if __name__ == '__main__':
 
 	#print singleNumber([2,2,1])
