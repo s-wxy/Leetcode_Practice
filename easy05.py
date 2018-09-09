@@ -92,8 +92,24 @@ def checkPossibility(nums):
 			return False 
 	return True
 
-# 48, 
-def 
+
+	cnt = 0
+	for i in range(1, len(nums)):
+		if cnt==2:
+			break
+		if nums[i]>=nums[i-1]:
+			continue
+		cnt += 1
+		if i-2>=0 and nums[i-2]>nums[i]:
+			nums[i]=nums[i-1]
+		else:
+			nums[i-1]=nums[i]
+	return cnt<=1
+
+# 48, Merge Sorted Array - only modify nums1 in-place
+def merge(nums1,m,nums2,n):
+	nums[m:]=nums2
+	return nums1.sort() 
 
 
 
