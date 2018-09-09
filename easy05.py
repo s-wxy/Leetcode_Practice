@@ -71,6 +71,29 @@ def matrixReshape(nums,r,c):
 					count = 0
 		return out 
 
+# 47, Non-decreasing Array
+def checkPossibility(nums):	
+	count = 0
+	for i in range(len(nums)-1):
+		if nums[i] <= nums[i+1]:
+			continue
+		else:
+			if i == 0:
+				nums[i] = nums[i+1]
+				count += 1
+			else:
+				if nums[i+1] >= nums[i-1]:
+					nums[i] = nums[i-1]
+					count += 1
+				else:
+					nums[i+1] = nums[i]
+					count += 1
+		if count >= 2:
+			return False 
+	return True
+
+# 48, 
+def 
 
 
 
@@ -79,8 +102,8 @@ if __name__ == '__main__':
 	#print singleNumber([2,2,1])
 	#print isToeplitzMatrix([[1,2,3,4],[5,1,2,3],[9,5,1,2]])
 	#print nextGreaterElement([1,3,5,2,4],[6,5,4,3,2,1,7])
-	print matrixReshape([[1,2,3],[4,5,6]],3,2)
-
+	#print matrixReshape([[1,2,3],[4,5,6]],3,2)
+	print checkPossibility([2,3,4])
 
 
 
