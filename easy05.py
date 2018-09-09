@@ -111,6 +111,12 @@ def merge(nums1,m,nums2,n):
 	nums[m:]=nums2
 	return nums1.sort() 
 
+# 49, Rotate Array 
+def rotate(nums,k)
+	n = len(nums)
+	nums[:] = nums[n-k:] + nums[:n-k]
+
+# 50, 
 
 
 if __name__ == '__main__':
@@ -119,7 +125,8 @@ if __name__ == '__main__':
 	#print isToeplitzMatrix([[1,2,3,4],[5,1,2,3],[9,5,1,2]])
 	#print nextGreaterElement([1,3,5,2,4],[6,5,4,3,2,1,7])
 	#print matrixReshape([[1,2,3],[4,5,6]],3,2)
-	print checkPossibility([2,3,4])
+	#print checkPossibility([2,3,4])
+	
 
 
 
