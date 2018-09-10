@@ -40,22 +40,22 @@ def selfDividingNumbers(left,right):
 	return out
 
 	# not invert to str
-	# result = []
-	# for i in range(left, right+1):
-	# 	if i < 10:
-	# 		result.append(i)
-	# 	else:
-	# 		flag = True
-	# 		num = i
-	# 		while num > 0:
-	# 			rem = num % 10
-	# 			if not rem or i % rem:
-	# 				flag = False
-	# 				break
-	# 			num = num / 10
-	# 		if flag:
-	# 			result.append(i)
-	# return result
+	result = []
+	for i in range(left, right+1):
+		if i < 10:
+			result.append(i)
+		else:
+			flag = True
+			num = i
+			while num > 0:
+				rem = num % 10
+				if not rem or i % rem:
+					flag = False
+					break
+				num = num / 10
+			if flag:
+				result.append(i)
+	return result
 
 # 24, Transpose Matrix 
 def transpose(A):
@@ -64,8 +64,8 @@ def transpose(A):
 	# initialize output matrix
 	# t=[[0]*len(A) for j in range(len(A[0]))]
 	# for i in range(len(A)):
-		# for j in range(len(A[0])):
-			# t[j][i]=A[i][j]               
+	# 	for j in range(len(A[0])):
+	# 		t[j][i]=A[i][j]               
 	# return t
 
 	lA = len(A)
@@ -90,18 +90,18 @@ def middleNode(head):
 	# the other is tmp, with two steps each iteration 
 	# when tmp reach the end, head just reaches the half of it 
 
-	# if head == None:
-	# 	return head
-	# if head.next == None:
-	# 	return head
-	# p = head
-	# q = head
-	# while q.next:
-	# 	p = p.next
-	# 	q = q.next
-	# 	if q.next != None:
-	# 		q = q.next
-	# return p
+	if head == None:
+		return head
+	if head.next == None:
+		return head
+	p = head
+	q = head
+	while q.next:
+		p = p.next
+		q = q.next
+		if q.next != None:
+			q = q.next
+	return p
 
 # 26, Number of lines To Write String - 
 # like this one, especially the way how to apply dictionary 
@@ -119,38 +119,30 @@ def numberOfLines(widths, S):
 	return [rows, last_row]
 
 	# using ord(), return ASCII, overlaying sum of the line space
-	# num_lines = 1
-	# size_of_line = 0
-	# idx_offset = ord('a')
-	# for char in S:
-	# 	idx = ord(char) - idx_offset
-	# 	width = widths[idx]
-	# 	proposed_size_of_line = size_of_line + width
-	# 	if proposed_size_of_line <= 100:
-	# 		size_of_line = proposed_size_of_line
-	# 	else:
-	# 		num_lines += 1
-	# 		size_of_line = width        
-	# return [num_lines,size_of_line]
+	num_lines = 1
+	size_of_line = 0
+	idx_offset = ord('a')
+	for char in S:
+		idx = ord(char) - idx_offset
+		width = widths[idx]
+		proposed_size_of_line = size_of_line + width
+		if proposed_size_of_line <= 100:
+			size_of_line = proposed_size_of_line
+		else:
+			num_lines += 1
+			size_of_line = width        
+	return [num_lines,size_of_line]
 
-# 27, Leaf-Similar Trees 
-def leafSimilar(root1, root2):
-	# yield, different from return, can save the valu in memory 
-	# recursive use dfs function 
-	# all(), iterative judge every element if it is true 
-	def dfs(node):
-		if not node: return
-		if not node.left and not node.right: yield node.val
-		for i in dfs(node.left): yield i
- 		for i in dfs(node.right): yield i
-	return all(a == b for a, b in itertools.izip_longest(dfs(root1), dfs(root2)))
+# 27, Longest Uncommon Subsequence
+# For strings A, B, when len(A) > len(B), the longest possible subsequence 
+# of either A or B is A, and no subsequence of B can be equal to A. Answer: len(A).
+# When len(A) == len(B), the only subsequence of B equal to A is B; 
+# so as long as A != B, the answer remains len(A).
+# When A == B, any subsequence of A can be found in B and vice versa, so the answer is -1.
 
-	# stringforward method, adding another function beside
-	return self.findleaf(root1) == self.findleaf(root2)
-def findleaf(self, root):
-	if not root: return []
-	if not (root.left or root.right): return [root.val]
-	return self.findleaf(root.left) + self.findleaf(root.right)
+def findLUSlength(A,B)
+	return -1 if A==B else max(len(A),len(B))
+
 
 # 28, Monotonic Array 
 def isMonotonic(A):
@@ -234,7 +226,6 @@ if __name__ == '__main__':
 
 	# print selfDividingNumbers(1,22)
 	# print numberOfLines([4,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10],"bbbcccdddaaa")
-	# print leafSimilar([3,5,1,6,2,9,8,null,null,7,4], [3,5,1,6,7,4,2,null,null,null,null,null,null,9,8])
 	# print reverseWords('ok haha')
 	print reverseStr("abcdefg", 2)
 
