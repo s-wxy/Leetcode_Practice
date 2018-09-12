@@ -1,4 +1,18 @@
 
+'''
+1, Flipping an Image
+2, Remove Duplicates from Sorted Array
+3, Array Partition I
+4, Transpose Matrix 
+5, Toeplitz Matrix
+6, Reshape the Matrix 
+7, Monotonic Array 
+8, Majority Element
+9, Plus one
+10, Search Insert Position
+
+'''
+
 # 1, Flipping an Image
 def flipAndInvertImage_l(A):
 	new = []

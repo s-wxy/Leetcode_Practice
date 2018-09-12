@@ -1,3 +1,13 @@
+
+'''
+11, Two Sum
+12, Merge Sorted Array - only modify nums1 in-place
+13, Third Maximum Number
+14, Rotate Array 
+15, Non-decreasing Array
+
+'''
+
 # 11, Two Sum
 def twoSum(nums, target):
         s = []      
@@ -71,6 +81,7 @@ if __name__ == '__main__':
 	# print twoSum([2, 7, 11, 15], 9)
 	# print thirdMax([2,2,3,1])
 	# print rotate([2,3,4,5,1,6],3)
+	# print checkPossibility01([4,3,2,3])
 
 
 

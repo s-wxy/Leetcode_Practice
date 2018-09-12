@@ -1,5 +1,5 @@
 
-# 1, Shortest Distance to a Character
+# 38, Shortest Distance to a Character
 def shortestToChar(S,C):
 	c_index = []
 	out = [0]*len(S)
@@ -11,7 +11,7 @@ def shortestToChar(S,C):
 			out[i] = min(list(map(lambda x: abs(x-i),c_index)))
 	return out 
 
-# 2, Peak Index in a Mountain Array
+# 21, Peak Index in a Mountain Array
 def peakIndexInMountainArray(A):
 	# return A.index(max(A))
 
@@ -29,8 +29,32 @@ def peakIndexInMountainArray(A):
 		return r
 	return l 	
 
+# 25, Middle of the Linked List 
+def middleNode(head):
+	tmp = head
+	while tmp and tmp.next:
+		head = head.next
+		tmp = tmp.next.next
+	return head
 
-# 3, Number of lines To Write String - 
+	# set two pointers, one is head with one step each iteration 
+	# the other is tmp, with two steps each iteration 
+	# when tmp reach the end, head just reaches the half of it 
+
+	if head == None:
+		return head
+	if head.next == None:
+		return head
+	p = head
+	q = head
+	while q.next:
+		p = p.next
+		q = q.next
+		if q.next != None:
+			q = q.next
+	return p
+
+# 26, Number of lines To Write String - 
 # like this one, especially the way how to apply dictionary 
 def numberOfLines(widths, S):
 	l2w = dict(zip(list('abcdefghijklmnopqrstuvwxyz'),widths))
@@ -59,28 +83,6 @@ def numberOfLines(widths, S):
 			num_lines += 1
 			size_of_line = width        
 	return [num_lines,size_of_line]
-
-# 4, Nim Game
-def canWinNim(n):
-	return False if int(n % 4) == 0 else True
-
-# 5, Next Greater Element I
-def nextGreaterElement(findNums, nums):
-	out = []
-	for num in findNums:
-		i = nums.index(num)
-		if i == len(nums)-1:
-			out.append(-1) 
-		else:
-			flag = 0	
-			for g in range(i+1,len(nums)):				
-				if nums[g] > num:
-					flag = 1					
-					out.append(nums[g])
-					break
-			if flag == 0:
-				out.append(-1)
-	return out
 
 
 if __name__ == '__main__':
