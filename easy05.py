@@ -114,6 +114,7 @@ def merge(nums1,m,nums2,n):
 # 49, Rotate Array 
 def rotate(nums,k):
 	n = len(nums)
+	k = n%k # in case k is bigger than len
 	nums[:] = nums[n-k:] + nums[:n-k]
 
 # 50, Third Maximum Number
@@ -134,7 +135,8 @@ if __name__ == '__main__':
 	#print nextGreaterElement([1,3,5,2,4],[6,5,4,3,2,1,7])
 	#print matrixReshape([[1,2,3],[4,5,6]],3,2)
 	#print checkPossibility([2,3,4])
-	print thirdMax([2,2,3,1])
+	print rotate([1,2,3,4],6)
+	#print thirdMax([2,2,3,1])
 	
 
 
