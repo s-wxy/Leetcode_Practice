@@ -5,6 +5,7 @@
 13, Third Maximum Number
 14, Rotate Array 
 15, Non-decreasing Array
+16, Move Zeros
 
 '''
 
@@ -75,6 +76,18 @@ def checkPossibility01(nums):
 			nums[i-1]=nums[i]
 	return cnt<=1
 
+# 16, Move Zeros 
+def moveZeroes(nums):
+	i,j = 0,0
+	while i < len(nums):
+		if nums[i] != 0:
+			nums[i],nums[j] = nums[j],nums[i]
+			j += 1
+		i += 1
+		print nums
+	return nums
+
+
 
 if __name__ == '__main__':
 
@@ -82,7 +95,7 @@ if __name__ == '__main__':
 	# print thirdMax([2,2,3,1])
 	# print rotate([2,3,4,5,1,6],3)
 	# print checkPossibility01([4,3,2,3])
-
+	print moveZeroes([0,1,0,3,12])
 
 
 

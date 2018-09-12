@@ -75,7 +75,14 @@ def findTheDifference(s, t):
 def findTheDifference01(s,t):
 	return chr(reduce(operator.xor, map(ord, s + t)))
 
-# 5, 
+# 5, Prime Number of Set Bits in Binary Representation
+def countPrimeSetBits(L, R):
+	prime = [2,3,5,7]
+	count = 0
+	for num in range(L,R+1):
+		if str(bin(num)).count("1") in prime:
+			count += 1
+	return count
 
 
 
@@ -87,9 +94,10 @@ if __name__ == '__main__':
 	# print singleNumber([2,2,1])
 	# print findTheDifference("abcd","abecd")
 	# print findTheDifference01("abcd","abecd")
+	print countPrimeSetBits(990, 1048)
 
 
 
 
 
-
+	

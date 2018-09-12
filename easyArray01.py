@@ -37,7 +37,7 @@ def removeDuplicates(nums):
 
 	count = 0 
 	for i in range(l_nums):
-		if nums[count] != nums[i]
+		if nums[count] != nums[i]:
 			nums += 1
 			nums[count] = nums[i]
 	return count+1
