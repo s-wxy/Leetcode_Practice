@@ -1,12 +1,4 @@
-# 01 Two Sum
-def twoSum(nums, target):
-        s = []      
-        for i in range(len(nums)):
-            for j in range(i+1,len(nums)):
-                if nums[j] == target - nums[i]:
-                    s.append(i)
-                    s.append(j)
-                    return s
+
 
 # 02 Reverse Integer
 def reverse(x):	
@@ -92,38 +84,7 @@ def isPalindrome(x):
 		numRange /= 100
 	return True
 
-# 09 Remove Duplicates from Sorted Array
-# modify on the input array, time:O(n), space:O(1)
-def removeDuplicates(nums):
-	l_nums = len(nums)
-	if l_nums == 0:
-		return 0
 
-	count = 0 
-	for i in range(l_nums):
-		if nums[count] != nums[i]
-			nums += 1
-			nums[count] = nums[i]
-	return count+1
-
-
-# 09 - 01, return the size chaning of the un-duplicated list 
-def removeDuplicates01(nums):
-	l_nums = len(nums)
-	d_len = set()
-	i = 0
-	
-	while i+1 < l_nums:
-		count = 1
-		if nums[i] == nums[i+1]:	
-			count = 1		
-			d_len.add(count)
-			i += 1
-		else:
-			count += 1
-			d_len.add(count)
-			i += 1
-	return list(d_len)
 
 
 # 10 Count and Say
@@ -150,7 +111,7 @@ def countAndSay(n):
 
 if __name__ == '__main__':
 
-	#print twoSum([2, 7, 11, 15], 9)
+
 	#print reverse(1534236469)
 	#print strStr("hello", "ll")
 	#print longestCommonPrefix(["dog","racecar","car"])

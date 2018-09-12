@@ -17,10 +17,7 @@ def peakIndexInMountainArray(A):
 		return r
 	return l
 
-# 22, Array Partition I
-def arrayPairSum(nums):
-	return sum(sorted(nums)[::2])
-	# list[start:end:step]
+
 
 # 23, self dividing numbers 
 def selfDividingNumbers(left,right):
@@ -57,26 +54,7 @@ def selfDividingNumbers(left,right):
 				result.append(i)
 	return result
 
-# 24, Transpose Matrix 
-def transpose(A):
-	# zip(*A)
-
-	# initialize output matrix
-	# t=[[0]*len(A) for j in range(len(A[0]))]
-	# for i in range(len(A)):
-	# 	for j in range(len(A[0])):
-	# 		t[j][i]=A[i][j]               
-	# return t
-
-	lA = len(A)
-	lN = len(A[0])
-	out = []
-	for i in range(lN):
-		new = []
-		for j in range(lA):
-			new.append(A[j][i])
-		out.append(new)
-	return out 	
+ 	
 
 # 25, Middle of the Linked List 
 def middleNode(head):
@@ -144,43 +122,7 @@ def findLUSlength(A,B)
 	return -1 if A==B else max(len(A),len(B))
 
 
-# 28, Monotonic Array 
-def isMonotonic(A):
-	# cmp(), compare two variables (x,y), if x<y return -1, if x=y, return 0, if x>y return 1
-	return not {cmp(i, j) for i, j in zip(A, A[1:])} >= {1, -1}
 
-	# comapre each element from two ends
-	if len(A) < 2: return True 
-	l, r = 0, len(A) - 1
-	J = True if A[l] < A[r] else False 
-	while l < r: 
-		if J == True: 
-			# increading trend 
-			if A[l] > A[r] or A[l] > A[l+1] or A[r-1] > A[r]:
-				return False
-			l += 1
-			r -= 1
-		elif J == False: 
-			# decreasing trend 
-			if A[l] < A[r] or A[l] < A[l+1] or A[r-1] < A[r]:
-				return False
-			l += 1
-			r += 1
-	return True 
-
-	# using Flag
-	if len(A) <= 2: return True
-	Flag = None
-	for i in range(1,len(A)):
-		if A[i] != A[i-1] and Flag == None:
-			Flag = (A[i] > A[i-1])
-		if Flag:
-			temp = (A[i] >= A[i-1])
-			if temp != Flag: return False
-		elif Flag != None:
-			temp = (A[i] > A[i-1])
-			if temp != Flag: return False
-	return True
 
 # 29, Reverse Words in a String III
 def reverseWords(s):

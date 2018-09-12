@@ -38,9 +38,7 @@ def findComplement(num):
 			combin += '0'
 	return int(combin, 2)
 
-# 34, Majority Element 
-def majorityElement(nums):
-	return max(set(nums), key=nums.count)
+
 
 # 35, Subdomain Visit Count
 def subdomainVisits(cpdomains):

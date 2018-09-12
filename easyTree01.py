@@ -26,12 +26,7 @@ def mergeTrees(t1,t2):
 	# t1.right=self.mergeTrees(t1.right, t2.right)
 	# return t1
 
-#2, 
-
-
-
-
-#3, Leaf-Similar Trees 
+#2, Leaf-Similar Trees 
 def leafSimilar(root1, root2):
 	# yield, different from return, can save the valu in memory 
 	# recursive use dfs function 
@@ -50,15 +45,37 @@ def findleaf(self, root):
 	if not (root.left or root.right): return [root.val]
 	return self.findleaf(root.left) + self.findleaf(root.right)
 
+#3, Search in a Binary Search Tree
+class TreeNode(object):
+	def __init__(self,x):
+		self.val = x
+		self.left = None
+		self.right = None
+
+class Solution(object):
+	def searchBST(self,root,val):
+		current = root 
+		while current:
+			if current.val == val:
+				return current 
+			elif current.val > val:
+				current = current.left
+			else:
+				current = current.right 
+		return None
+
 
 if __name__ == '__main__':
 
 
-
-
-
-
-
-
-
+	print Solution().searchBST([4,2,7,1,3],2)
 	
+
+
+
+
+
+
+
+
+
