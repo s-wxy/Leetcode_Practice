@@ -101,7 +101,7 @@ def numSpecialEquivGroups(A):
 # so as long as A != B, the answer remains len(A).
 # When A == B, any subsequence of A can be found in B and vice versa, so the answer is -1.
 
-def findLUSlength(A,B)
+def findLUSlength(A,B):
 	return -1 if A==B else max(len(A),len(B))
 
 # 9, Reverse Vowels of a String
@@ -184,6 +184,19 @@ def judgeCircle(moves):
 	else:
 		return False
 
+# 15, Goat Latin
+def toGoatLatin(S):
+	vowel = "a,e,i,o,u,A,E,I,O,U"
+	out = []
+	arr = S.split(' ')
+	for i,word in enumerate(arr):
+		if word[:1] in vowel:
+			word = word + "ma"
+		else:
+			word = word[1:] + word[:1] + "ma"
+		word += (i+1)*"a"
+		out.append(word)
+	return " ".join(out) 
 
 if __name__ == '__main__':
 
@@ -196,6 +209,7 @@ if __name__ == '__main__':
 	# print isValid("((")
 	# print lengthOfLastWord('a ')
 	# print judgeCircle("U")
+	print toGoatLatin("The quick brown fox jumped over the lazy dog")
 
 
 

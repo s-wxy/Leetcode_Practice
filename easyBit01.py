@@ -8,6 +8,8 @@ bitwise operator, https://wiki.python.org/moin/BitwiseOperators
 2, Number Complement
 3, Single Number
 4, Find the Difference
+5, Prime Number of Set Bits in Binary Representation
+   recall - number of set bits an integer has is the number of 1s present when written in binary
 
 '''
 
@@ -77,12 +79,21 @@ def findTheDifference01(s,t):
 
 # 5, Prime Number of Set Bits in Binary Representation
 def countPrimeSetBits(L, R):
-	prime = [2,3,5,7]
+	prime = [2,3,5,7,11,13,17,19]
 	count = 0
 	for num in range(L,R+1):
-		if str(bin(num)).count("1") in prime:
+		if bin(num).count("1") in prime:
 			count += 1
 	return count
+
+def countPrimeSetBits00(L, R):
+	# one line 
+	return len([1 for i in range(L,R+1) if bin(i).count('1') in [2, 3, 5, 7, 11, 13, 17, 19]])
+
+def countPrimeSetBits01(L, R):
+	# in one line, use map  
+	prime = [2,3,5,7,11,13,17,19]
+	return sum(map(lambda x: bin(x).count('1') in prime, range(L, R+1)))
 
 
 
@@ -95,6 +106,7 @@ if __name__ == '__main__':
 	# print findTheDifference("abcd","abecd")
 	# print findTheDifference01("abcd","abecd")
 	print countPrimeSetBits(990, 1048)
+	print countPrimeSetBits00(990, 1048)
 
 
 
