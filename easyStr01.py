@@ -14,6 +14,7 @@
 12, Length of the Last Word
 13, Longest Common Prefix
 14, Robot Return to Origin
+15, Goat Latin
 
 '''
 

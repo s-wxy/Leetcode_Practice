@@ -10,6 +10,7 @@ bitwise operator, https://wiki.python.org/moin/BitwiseOperators
 4, Find the Difference
 5, Prime Number of Set Bits in Binary Representation
    recall - number of set bits an integer has is the number of 1s present when written in binary
+6, Binary Number with Alternating Bits
 
 '''
 
@@ -95,6 +96,9 @@ def countPrimeSetBits01(L, R):
 	prime = [2,3,5,7,11,13,17,19]
 	return sum(map(lambda x: bin(x).count('1') in prime, range(L, R+1)))
 
+# 6, Binary Number with Alternating Bits
+def hasAlternatingBits(n):
+	return "11" not in bin(n) and "00" not in bin(n)
 
 
 if __name__ == '__main__':
@@ -105,8 +109,9 @@ if __name__ == '__main__':
 	# print singleNumber([2,2,1])
 	# print findTheDifference("abcd","abecd")
 	# print findTheDifference01("abcd","abecd")
-	print countPrimeSetBits(990, 1048)
-	print countPrimeSetBits00(990, 1048)
+	# print countPrimeSetBits(990, 1048)
+	# print countPrimeSetBits00(990, 1048)
+	print hasAlternatingBits(11)
 
 
 
