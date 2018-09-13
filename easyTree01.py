@@ -1,3 +1,12 @@
+
+'''
+
+1, Merge Two Binary Trees
+2, Leaf-Similar Trees 
+3, Search in a Binary Search Tree
+
+'''
+
 #1, Merge Two Binary Trees
 def mergeTrees(t1,t2):
 	
@@ -46,13 +55,12 @@ def findleaf(self, root):
 	return self.findleaf(root.left) + self.findleaf(root.right)
 
 #3, Search in a Binary Search Tree
-class TreeNode(object):
+class Tree():
 	def __init__(self,x):
 		self.val = x
 		self.left = None
 		self.right = None
 
-class Solution(object):
 	def searchBST(self,root,val):
 		current = root 
 		while current:
@@ -67,8 +75,7 @@ class Solution(object):
 
 if __name__ == '__main__':
 
-
-	print Solution().searchBST([4,2,7,1,3],2)
+	
 	
 
 
