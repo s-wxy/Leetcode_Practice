@@ -5,6 +5,7 @@
 3, Keyboard Row 
 4, Uncommon Words from Two Sentences
 5, Distribute Candies
+6, Island Perimeter
 
 '''
 
@@ -117,6 +118,22 @@ def uncommonFromSentences01(A, B):
 def distributeCandies(candies):
 	return min(len(candies)/2, len(set(candies)))
 
+# 6, Island Perimeter
+def islandPerimeter(grid):
+	m, n = len(grid), len(grid[0])
+	out = 0 
+	for r in range(m):
+		for c in range(n):
+			if grid[r][c] == 1:
+				if r == 0 or grid[r-1][c] == 0:
+					out += 1
+				if r == m-1 or grid[r+1][c] == 0:
+					out += 1
+				if c == 0 or grid[r][c-1] == 0:
+					out += 1
+				if c == n-1 or grid[r][c+1] == 0:
+					out += 1
+	return out 
 
 
 
@@ -124,6 +141,7 @@ if __name__ == '__main__':
 
 	# print numJewelsInStones("aA","aaaaAAC")
 	# print subdomainVisits(["900 google.mail.com", "50 mail.com"])
+	print islandPerimeter([[0, 1, 0, 0], [1, 1, 1, 0], [0, 1, 0, 0], [1, 1, 0, 0]])
 
 
 
