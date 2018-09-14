@@ -1,5 +1,6 @@
 
 '''
+Tree - each node could represent the subtree under it
 
 1, Merge Two Binary Trees
 2, Leaf-Similar Trees 
@@ -7,7 +8,7 @@
 
 '''
 
-#1, Merge Two Binary Trees
+# 1, Merge Two Binary Trees
 def mergeTrees(t1,t2):
 	
 	# method 1
@@ -25,17 +26,17 @@ def mergeTrees(t1,t2):
 	node.right = self.mergeTrees(R1, R2)
 	return node
 
-	# method 2
-	# if t1==None:
-	# 	return t2
-	# elif t2==None:
-	# 	return t1
-	# t1.val+=t2.val
-	# t1.left=self.mergeTrees(t1.left, t2.left)
-	# t1.right=self.mergeTrees(t1.right, t2.right)
-	# return t1
+def mergeTrees01(t1,t2):
+	if t1==None:
+		return t2
+	elif t2==None:
+		return t1
+	t1.val+=t2.val
+	t1.left=self.mergeTrees(t1.left, t2.left)
+	t1.right=self.mergeTrees(t1.right, t2.right)
+	return t1
 
-#2, Leaf-Similar Trees 
+# 2, Leaf-Similar Trees 
 def leafSimilar(root1, root2):
 	# yield, different from return, can save the valu in memory 
 	# recursive use dfs function 
@@ -54,14 +55,8 @@ def findleaf(self, root):
 	if not (root.left or root.right): return [root.val]
 	return self.findleaf(root.left) + self.findleaf(root.right)
 
-#3, Search in a Binary Search Tree
-class Tree():
-	def __init__(self,x):
-		self.val = x
-		self.left = None
-		self.right = None
-
-	def searchBST(self,root,val):
+# 3, Search in a Binary Search Tree
+def searchBST(self,root,val):
 		current = root 
 		while current:
 			if current.val == val:
@@ -72,6 +67,24 @@ class Tree():
 				current = current.right 
 		return None
 
+# 4, Average of Levels in Binary Tree
+def averageOfLevels(root):
+	if not root:
+		return []
+
+	# read noot, since Treenode is not iterable, 
+	result, currentL = [],[root]
+	while currentL:
+		nodes,nextL = [],[]
+		for node in currentL:
+			nodes.append(node.val)
+			if node.left:
+				nextL.append(node.left)
+			if node.right:
+				nextL.append(node.right)
+		result.append(sum(nodes)/len(nodes)*1.0)
+		currentL = nextL
+	return result 
 
 if __name__ == '__main__':
 
