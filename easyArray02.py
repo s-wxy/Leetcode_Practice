@@ -7,6 +7,7 @@
 15, Non-decreasing Array
 16, Move Zeros
 17, Fair Candy Swap 
+18, Max Consecutive Ones
 
 '''
 
@@ -94,12 +95,26 @@ def moveZeroes(nums):
 def fairCandySwap(A, B):
 	change = (sum(A) + sum(B))/2
 	B = set(B)
-	A = set(A)
 	for i in set(A):
 		if change - (sum(A)-i) in B:
 			return [i, change - (sum(A)-i)]
 
+# 18, Max Consecutive Ones
+def findMaxConsecutiveOnes(nums):
+	out, count = 0, 0
+	for num in nums:
+		if num == 1:
+			count += 1			
+		else:
+			out = max(out,count)
+			count = 0 
 
+			# can also code as:
+			# if count > out:
+			# 	out = count
+			# count = 0 
+
+	return max(out,count)
 
 
 if __name__ == '__main__':
@@ -109,7 +124,8 @@ if __name__ == '__main__':
 	# print rotate([2,3,4,5,1,6],3)
 	# print checkPossibility01([4,3,2,3])
 	# print moveZeroes([0,1,0,3,12])
-	print fairCandySwap([1,1],[2,2])
+	# print fairCandySwap([1,1],[2,2])
+	print findMaxConsecutiveOnes([1,1,0,1,1,1])
 
 
 
