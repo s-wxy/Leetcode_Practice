@@ -6,6 +6,7 @@
 14, Rotate Array 
 15, Non-decreasing Array
 16, Move Zeros
+17, Fair Candy Swap 
 
 '''
 
@@ -87,6 +88,18 @@ def moveZeroes(nums):
 		print nums
 	return nums
 
+# 17, Fair Candy Swap 
+# check any element in A, if the restOfA + anyElementInB == change
+# then return this element and the one in B 
+def fairCandySwap(A, B):
+	change = (sum(A) + sum(B))/2
+	B = set(B)
+	A = set(A)
+	for i in set(A):
+		if change - (sum(A)-i) in B:
+			return [i, change - (sum(A)-i)]
+
+
 
 
 if __name__ == '__main__':
@@ -95,7 +108,8 @@ if __name__ == '__main__':
 	# print thirdMax([2,2,3,1])
 	# print rotate([2,3,4,5,1,6],3)
 	# print checkPossibility01([4,3,2,3])
-	print moveZeroes([0,1,0,3,12])
+	# print moveZeroes([0,1,0,3,12])
+	print fairCandySwap([1,1],[2,2])
 
 
 
