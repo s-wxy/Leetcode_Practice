@@ -115,7 +115,64 @@ def getDepth(self,node):
 			max_depth = d
 	return max_depth + 1
 
-# 6, 
+# 6, Maximum Depth of Binary Tree - DFS 
+def maxDepthBT(self,root):
+	if not root: return 0
+	return max(self.maxDepth(root.left),self.maxDepth(root.right)) + 1
+
+def maxDepthBT01(self,root):
+	# stack for level order 
+	if not root: return 0
+	tstack,h = [root],0
+	# count number of levels 
+	while tstack:
+		nextL = []
+		while tstack:
+			top = tstack.pop()
+			if top.left:
+				nextL.append(top.left)
+			if top.right:
+				nextL.append(top.right)
+		tstack = nextL
+		h += 1
+	return h 
+
+def maxDepthBT02(self,root):
+	# queue for level order - deque is an updgrade list hahaha
+	# Deque is preferred over list in the cases where we need quicker append and pop operations 
+	# from both the ends of container, as deque provides an O(1) time complexity for append and 
+	# pop operations as compared to list which provides O(n) time complexity.
+	if not root: return 0
+	tqueue,h = collections.deque(),0
+	tqueue.append(root)
+	while tqueue:
+		nextL = collections.deque()
+		while tqueue:
+			front = tqueue.popleft()
+			if front.left:
+				nextL.append(front.left)
+			if front.right:
+				nextL.append(front.right)
+		tqueue = nextL
+		h += 1
+	return h 
+
+def maxDepthBT03(self,root):
+	if root: 
+		level = root
+	else:
+		return 0
+	depth = 0
+	while level:
+		depth += 1
+		queue = []
+		for node in level:
+			if node.left:
+				queue.append(node.left)
+			if node.right:
+				queue.append(node.right)
+		level = queue
+	return depth 
 
 
 
