@@ -5,6 +5,9 @@ Tree - each node could represent the subtree under it
 1, Merge Two Binary Trees
 2, Leaf-Similar Trees 
 3, Search in a Binary Search Tree
+4, Average of Levels in Binary Tree
+5, Maximum Depth of N-ary Tree - DFS 
+6, Maximum Depth of Binary Tree - DFS 
 
 '''
 
@@ -86,7 +89,35 @@ def averageOfLevels(root):
 		currentL = nextL
 	return result 
 
-if __name__ == '__main__':
+# 5, Maximum Depth of N-ary Tree - DFS 
+def maxDepth(self,root):
+	# if it's an empty tree, return 0
+	if not root: return 0
+	# if there is no children node, return 1 
+	if not root.children: return 1
+	out = []
+	for node in root.children:
+		out.append(self.maxDepth(node))
+	return max(out) + 1
+
+	# code in one line 
+	return max(self.maxDepth(node) for node in root.children) + 1
+
+def maxDepth01(self,root):
+	if not root: return 0
+	return self.getDepth(root)
+
+def getDepth(self,node):
+	max_depth = 0
+	for c in node.children:
+		d = self.getDepth(c)
+		if d > max_depth:
+			max_depth = d
+	return max_depth + 1
+
+# 6, 
+
+
 
 	
 	
