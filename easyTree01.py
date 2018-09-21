@@ -9,6 +9,7 @@ Tree - each node could represent the subtree under it
 5, Maximum Depth of N-ary Tree - DFS 
 6, Maximum Depth of Binary Tree - DFS 
 7, Increasing Order Search Tree - DFS 
+8, Construct String from Binary Tree
 
 '''
 
@@ -204,7 +205,43 @@ def increasingBST(self, root, tail = None):
 	root.right = self.increasingBST(root.right, tail)
 	return re
 
+# 8, Construct String from Binary Tree
+def tree2str(self,t):
 
+	def preorder(root):
+		if not root: return ""
+		s = str(root.val)
+		l = preorder(root.left)
+		r = preorder(root.right)
+
+		if l == "" and r == "":
+			return s
+		elif l == "":
+			s += "()" + "("+r+")"
+		elif r == "":
+			s += "()" + "("+l+")"
+		else:
+			s += "()" + "("+l+")" + "("+r+")" 
+		return s 
+	return preorder(t)
+
+def tree2str01(self, t):
+	if not t: return ""
+	res = ""
+	left = self.tree2str(t.left)
+	right = self.tree2str(t.right)
+	if left or right:
+	    res += "(%s)" % left
+	if right:
+	    res += "(%s)" % right
+	return str(t.val) + res
+
+def tree2str(self, t):
+	# use format()
+	if not t: return ''
+	left = '({})'.format(self.tree2str(t.left)) if (t.left or t.right) else ''
+	right = '({})'.format(self.tree2str(t.right)) if t.right else ''
+	return '{}{}{}'.format(t.val, left, right)
 
 
 	
