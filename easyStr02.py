@@ -2,6 +2,7 @@
 '''
 16, Detect Capital
 17, Count Binary Substrings
+18, Rotated Digits
 
 '''
 
@@ -49,6 +50,16 @@ def countBinarySubstrings01(s):
 			_d = d
 	return ct 
 
+# 18, Rotated Digits
+def rotatedDigits(N):
+	count = 0
+	for i in range(1,N+1):		
+		if '3' in str(i) or '7' in str(i) or '4' in str(i):
+			continue
+		if '2' in str(i) or '5' in str(i) or '6' in str(i) or '9' in str(i):
+			count += 1
+	return count 
+
 
 
 
@@ -57,5 +68,6 @@ if __name__ == '__main__':
 
 	# print detectCapitalUse("hasdA")
 	# print countBinarySubstrings("00110011")
+	print rotatedDigits(857)
 
 
