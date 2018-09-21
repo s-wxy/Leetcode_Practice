@@ -8,6 +8,7 @@ Tree - each node could represent the subtree under it
 4, Average of Levels in Binary Tree
 5, Maximum Depth of N-ary Tree - DFS 
 6, Maximum Depth of Binary Tree - DFS 
+7, Increasing Order Search Tree - DFS 
 
 '''
 
@@ -173,6 +174,25 @@ def maxDepthBT03(self,root):
 				queue.append(node.right)
 		level = queue
 	return depth 
+
+# 7, Increasing Order Search Tree 
+def increasingBST(self,root):
+	head, head.right = TreeNode(0), root
+	p,q = head, root 
+	# if q exist 
+	while q:
+		if q.left: 
+			r = q.left 
+			while r.right: r = r.right 
+			r.right = q
+			p.right = q.left
+			q.left = None
+			q = p.right 
+		else:
+			p = q
+			q = q.right 
+	return head.right 
+
 
 
 
