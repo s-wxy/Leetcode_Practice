@@ -60,7 +60,32 @@ def rotatedDigits(N):
 			count += 1
 	return count 
 
+# 19, Ransom Note
+def canConstrcut(ransomNote, magazine):
+	if not ransomNote: return True
+	note = {}
+	for i in range(len(ransomNote)):
+		w = ransomNote[i]
+		if w not in note:
+			note[w]=0
+		note[w]+=1
+		i+=1
+	Flag = True
+	for key in note:
+		if key not in magazine:
+			Flag = False
+		if note[key] > magazine.count(key):
+			Flag = False
+	return Flag
 
+def canConstrcut01(ransomNote, magazine):
+	for i in set(ransomNote):
+	    if ransomNote.count(i) > magazine.count(i):
+	        return False
+	return True
+
+
+	
 
 
 if __name__ == '__main__':
@@ -68,6 +93,7 @@ if __name__ == '__main__':
 
 	# print detectCapitalUse("hasdA")
 	# print countBinarySubstrings("00110011")
-	print rotatedDigits(857)
+	# print rotatedDigits(857)
+	print canConstrcut("","")
 
 
