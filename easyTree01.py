@@ -177,21 +177,32 @@ def maxDepthBT03(self,root):
 
 # 7, Increasing Order Search Tree 
 def increasingBST(self,root):
-	head, head.right = TreeNode(0), root
-	p,q = head, root 
-	# if q exist 
-	while q:
-		if q.left: 
-			r = q.left 
-			while r.right: r = r.right 
-			r.right = q
-			p.right = q.left
-			q.left = None
-			q = p.right 
+	if not root: return None
+	res,stack = [],[]
+	while root or stack:
+		if root:
+			stack.append(root)
+			root = root.left
 		else:
-			p = q
-			q = q.right 
-	return head.right 
+			node = stack.pop()
+			res.append(node.val)
+			root = node.right
+		# adjust node.right  
+		dummy = pre = TreeNode(-1)
+		i = 0
+		while i < len(res):
+			pre.right = TreeNode(res[i])
+			pre = pre.right 
+			i+=1
+		return dummy.right 
+
+def increasingBST(self, root, tail = None):
+	# recursive solution 
+	if not root: return tail
+	res = self.increasingBST(root.left, root)
+	root.left = None
+	root.right = self.increasingBST(root.right, tail)
+	return re
 
 
 
