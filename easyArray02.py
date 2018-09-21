@@ -8,7 +8,7 @@
 16, Move Zeros
 17, Fair Candy Swap 
 18, Max Consecutive Ones
-19, Max Area of Island 
+
 
 '''
 
@@ -117,12 +117,7 @@ def findMaxConsecutiveOnes(nums):
 
 	return max(out,count)
 
-# 19, Max Area of Island
-def maxAreaOfIsland(grid):
-	if 1 not in grid:
-		return 0
-	m,n = len(grid),len(grid[0])
-	
+
 
 
 
