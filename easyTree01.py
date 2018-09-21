@@ -219,9 +219,9 @@ def tree2str(self,t):
 		elif l == "":
 			s += "()" + "("+r+")"
 		elif r == "":
-			s += "()" + "("+l+")"
+			s += "("+l+")"
 		else:
-			s += "()" + "("+l+")" + "("+r+")" 
+			s += "("+l+")" + "("+r+")" 
 		return s 
 	return preorder(t)
 
