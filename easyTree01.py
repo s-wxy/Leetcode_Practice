@@ -10,7 +10,6 @@ Tree - each node could represent the subtree under it
 6, Maximum Depth of Binary Tree - DFS 
 7, Increasing Order Search Tree - DFS 
 8, Construct String from Binary Tree
-9, N-ary Tree Postorder Traversal, extend() VS append()
 
 '''
 
@@ -243,35 +242,6 @@ def tree2str(self, t):
 	left = '({})'.format(self.tree2str(t.left)) if (t.left or t.right) else ''
 	right = '({})'.format(self.tree2str(t.right)) if t.right else ''
 	return '{}{}{}'.format(t.val, left, right)
-
-# 9, N-ary Tree Postorder Traversal
-def postorder(self,root):
-	# recursion method, Tree traversal
-	# https://en.wikipedia.org/wiki/Tree_traversal#Post-order_(LRN)
-	res = []
-	if root == None: return res
-	def recursion(root,res):
-		for child in root.children:
-			recursion(child,res)
-		res.append(root.val)
-	recursion(root,res)
-	return res
-
-def postorder01(self,root):
-	# iterative method, use of stack.extend()
-	res = []
-	if root == None: return res
-	while stack:
-		curr = stack.pop()
-		res.append(curr.val)
-		stack.extend(curr.children)
-	return res[::-1]	
-
-
-
-
-
-
 
 
 
