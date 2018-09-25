@@ -8,6 +8,7 @@
 16, Move Zeros
 17, Fair Candy Swap 
 18, Max Consecutive Ones
+19, Sort Array By Parity
 
 
 '''
@@ -117,8 +118,30 @@ def findMaxConsecutiveOnes(nums):
 
 	return max(out,count)
 
+# 19, Sort Array By Parity 
+def sortArrayByParity(A):
+	oddA, evenA= [],[]
+	for c in A:
+		if c % 2 == 0:
+			evenA.append(c)
+		else:
+			oddA.append(c)
+	return evenA + oddA
 
-
+def sortArrayByParity01(A):
+	# use two pointers, in-place sort array 
+	i, j = 0, len(A)-1
+	while i < j:
+		if A[i] % 2 == 0:
+			i += 1
+			continue
+		if A[j] % 2 == 1:
+			j -= 1
+			continue
+		A[i], A[j] = A[j], A[i]
+		i += 1
+		j -= 1
+	return A
 
 
 if __name__ == '__main__':
@@ -129,7 +152,8 @@ if __name__ == '__main__':
 	# print checkPossibility01([4,3,2,3])
 	# print moveZeroes([0,1,0,3,12])
 	# print fairCandySwap([1,1],[2,2])
-	print findMaxConsecutiveOnes([1,1,0,1,1,1])
+	# print findMaxConsecutiveOnes([1,1,0,1,1,1])
+	print sortArrayByParity([3,1,2,4])
 
 
 
