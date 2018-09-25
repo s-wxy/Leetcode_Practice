@@ -7,6 +7,7 @@
 5, self dividing numbers 
 6, Add Digits 
 7, Projection Area of 3D Shapes - transpose matrix, clevel
+8, Smallest Range I
 
 '''
 
@@ -118,6 +119,11 @@ def projectionArea(grid):
 	zoy = sum([max(i) for i in list(zip(*grid))])
 	return xoy + xoz + zoy 
 
+# 8, Smallest Range I
+def smallestRangeI(A,K):
+	# case 1, if (max number -K ) < (min number + K), return 0
+	# case 2, if (max number -K ) > (min number + K), return difference
+	return max(0, (max(A)-K) - (min(A)+K))
 
 if __name__ == '__main__':
 
@@ -126,5 +132,6 @@ if __name__ == '__main__':
 	# print selfDividingNumbers(1,22)
 	# print selfDividingNumbers01(1,22)
 	# print isPalindrome(121)
+	print smallestRangeI([1,3,6],3)
 
 
