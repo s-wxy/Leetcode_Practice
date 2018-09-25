@@ -9,7 +9,7 @@
 17, Fair Candy Swap 
 18, Max Consecutive Ones
 19, Sort Array By Parity
-
+20, Maximum Average Subarray I
 
 '''
 
@@ -143,6 +143,22 @@ def sortArrayByParity01(A):
 		j -= 1
 	return A
 
+# 20, Maximum Average Subarray I
+def findMaxAverage(nums,k):
+	numsL, mean = len(nums),[]
+	for i in range(0, numsL - k + 1):
+		mean.append(sum(nums[i:i+k]))	
+	return float(max(mean))/float(k)
+
+def findMaxAverage01(nums,k):
+	maxi = sum(nums[:k])
+	temp = maxi 
+	for i in range(len(nums)-k):
+		temp = temp - nums[i] + nums[i+k]
+		if temp > maxi:
+			maxi = temp 
+	return float(maxi) / float(k) 
+
 
 if __name__ == '__main__':
 
@@ -154,6 +170,7 @@ if __name__ == '__main__':
 	# print fairCandySwap([1,1],[2,2])
 	# print findMaxConsecutiveOnes([1,1,0,1,1,1])
 	# print sortArrayByParity([3,1,2,4])
+	# print findMaxAverage([1,12,-5,-6,50,3],4)
 
 
 
