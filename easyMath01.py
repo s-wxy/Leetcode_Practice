@@ -6,6 +6,7 @@
 4, Roman to Integer
 5, self dividing numbers 
 6, Add Digits 
+7, Projection Area of 3D Shapes - transpose matrix, clevel
 
 '''
 
@@ -108,6 +109,15 @@ def addDigits(num):
 			num /= 10
 		num = temp 
 	return num 
+
+# 7, Projection Area of 3D Shapes 
+def projectionArea(grid):
+	xoy = sum(1 for i in grid for j in i if j != 0)
+	xoz = sum([max(i) for i in grid])
+	# using zip() and *, to tanspose matrix 
+	zoy = sum([max(i) for i in list(zip(*grid))])
+	return xoy + xoz + zoy 
+
 
 if __name__ == '__main__':
 

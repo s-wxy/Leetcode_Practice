@@ -120,7 +120,7 @@ def findMaxConsecutiveOnes(nums):
 
 # 19, Sort Array By Parity 
 def sortArrayByParity(A):
-	oddA, evenA= [],[]
+	oddA, evenA = [],[]
 	for c in A:
 		if c % 2 == 0:
 			evenA.append(c)
@@ -153,7 +153,7 @@ if __name__ == '__main__':
 	# print moveZeroes([0,1,0,3,12])
 	# print fairCandySwap([1,1],[2,2])
 	# print findMaxConsecutiveOnes([1,1,0,1,1,1])
-	print sortArrayByParity([3,1,2,4])
+	# print sortArrayByParity([3,1,2,4])
 
 
 
