@@ -8,22 +8,8 @@
 
 # 1, N-ary Tree Preorder Traversal
 def preorder(self,root):
-	# iterative 
 	if not root: return []
-	stack,res = [root],[]
-	while stack:
-		curr = stack.pop(0)
-		res.append(curr.val)
-		stack = curr.children + stack
-	return res 
-
-def preorder01(self,root):
-	# recursive 
-	if not root: return []
-	st = [root.val]
-	for node in root.children:
-		st += self.preorder01(node)
-	return st
+	
 
 
 # 2, N-ary Tree Level Order Traversal
