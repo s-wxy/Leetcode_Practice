@@ -4,6 +4,7 @@
 2, N-ary Tree Level Order Traversal - BFS
 3, N-ary Tree Postorder Traversal, recursion & iterative extend() VS append()
 4, Trim a Binary Search Tree - DFS
+5, Invert Binary Tree - iterative, BFS, DFS
 
 '''
 
@@ -83,6 +84,35 @@ def trimBST01(self,root,L,R):
 			node = node.left if node.left else node.right 
 		return node 
 	return trim(root)
+
+# 5, Invert Binary Tree 
+def invertTree(self,root):
+	# recursively 
+	if root:
+		root.left, root.right = self.invertTree(root.right), self.invertTree(root.left)
+		return root
+
+def invertTree01(self,root):
+	# BFS
+	queue = collections.deque([root])
+	while queue:
+		node = queue.popleft()
+		if node:
+			node.left, node.right = node.right, node.left
+			queue.append(node.left)
+			queue.append(node.right)
+	return root 
+
+def inverTree02(self,root):
+	# DFS
+	stack = [root]
+	while stack:
+		node = stack.pop()
+		if node:
+			node.left, node.right = node.right, node left
+			stack.extend([node.right,node.left])
+	return root 
+
 
 
 
