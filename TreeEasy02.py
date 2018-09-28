@@ -3,6 +3,7 @@
 1, N-ary Tree Preorder Traversal
 2, N-ary Tree Level Order Traversal - BFS
 3, N-ary Tree Postorder Traversal, recursion & iterative extend() VS append()
+4, Trim a Binary Search Tree - DFS
 
 '''
 
@@ -57,6 +58,31 @@ def postorder01(self,root):
 		res.append(curr.val)
 		stack.extend(curr.children)
 	return res[::-1]
+
+# 4, Trim a Binary Search Tree
+# case1, root.val < L, pick root.right subtree == delete all left nodes 
+# case2, root.cal > R, pick root.left 
+# case3, in the range [L,R], continue  
+def trimBST(self,root,L,R):
+	if not root: return root 
+	if root.val > R: return self.trimBST(root.left,L,R)
+	if root.val < L: return self.trimBST(root.right,L,R)
+
+	root.left = self.trimBST(root.left,L,R)
+	root.right = self.trimBST(root.right,L,R)
+
+	return root 
+
+def trimBST01(self,root,L,R):
+	def trim(node):
+		if not node: return None 
+		node.left, node.right = trim(node.left),trim(node.right)
+		# node's value is not in range
+		# select one or none of its children as replacement 
+		if not (L <= node.val <= R):
+			node = node.left if node.left else node.right 
+		return node 
+	return trim(root)
 
 
 
