@@ -7,6 +7,7 @@
 20, First Unique Character in a String
 21, Student Attendance Record I
 22, Most Common Word
+23, Baseball Game 
 
 '''
 
@@ -151,6 +152,20 @@ def mostCommonWord(paragraph, banned):
 				d[c] = 1
 	return sorted(d.items(),key=lambda x:-x[1])[0][0]
 
+# 23, Baseball Game 
+def calPoints(ops):
+	history = []
+	ops = ["0","0"] + ops
+	for op in ops:
+		if op == 'C':
+			history.pop()
+		elif op == 'D':
+			history.append(int(history[-1])*2)
+		elif op == '+':
+			history.append(int(history[-1])+int(history[-2]))
+		else:
+			history.append(int(op))
+	return sum(history)
 
 
 
@@ -163,6 +178,6 @@ if __name__ == '__main__':
 	# print canConstrcut("","")
 	# print firstUniqChar("eee")
 	# print checkRecord('PPALLL')
-	mostCommonWord("Bob hit a ball, the hit BALL flew far after it was hit.",["hit"])
-
+	# mostCommonWord("Bob hit a ball, the hit BALL flew far after it was hit.",["hit"])
+	print calPoints(["5","2","C","D","+"])
 
