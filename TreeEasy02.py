@@ -4,7 +4,7 @@
 2, N-ary Tree Level Order Traversal - BFS
 3, N-ary Tree Postorder Traversal, recursion & iterative extend() VS append()
 4, Trim a Binary Search Tree - DFS
-5, Invert Binary Tree - iterative, BFS, DFS
+5, Invert Binary Tree - iterative, BFS(queue), DFS(stack)
 
 '''
 
