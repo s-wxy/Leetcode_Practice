@@ -9,6 +9,7 @@
 7, Projection Area of 3D Shapes - transpose matrix, clevel
 8, Smallest Range I
 9, Arranging Coins
+10, Binary Gap 
 
 '''
 
@@ -146,9 +147,29 @@ def arrangingCoins02(n):
 		elif (1+mid)*mid/2 < n:
 			start = mid
 		else: return mid
-	if (1+end)*end/2 == n 
+	if (1+end)*end/2 == n: 
 		return end
 	return start 
+
+# 10, Binary Gap 
+def binaryGap(N): 
+	ic,res = [],[]
+	for i,c in enumerate(bin(N)):
+		if c == '1': 
+			ic.append(i)
+	for a,b in zip(ic,ic[1:]):
+		res.append(b-a)
+	if res: return max(res)
+	else: return 0
+
+def binaryGap01(N):
+	# concise version 
+	index = [i for i,v in enumerate(bin(N)) if v == '1']
+	return max([b-a for a,b in zip(index,index[1:])] or [0])
+
+def binaryGap02(N):
+	# use & to find if bin(N) only have one '1'
+	return max(len(c) for c in bin(N)[2:].strip('0').split('1') + 1 if N & (N-1) else 0)
 
 
 
@@ -160,6 +181,7 @@ if __name__ == '__main__':
 	# print selfDividingNumbers01(1,22)
 	# print isPalindrome(121)
 	# print smallestRangeI([1,3,6],3)
-	print arrangingCoins(5)
+	# print arrangingCoins(5)
+	print binaryGap(8)
 
 
