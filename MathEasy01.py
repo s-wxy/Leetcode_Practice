@@ -178,8 +178,9 @@ def surfaceArea(grid):
 	for i in range(n):
 		for j in range(n):
 			if grid[i][j]: res += 2+grid[i][j]*4
-			if grid[i]:res += min()
-			if grid[j]:
+			if grid[i]:res -= min(grid[i][j],grid[i-1][j]) * 2
+			if grid[j]:res -= min(grid[i][i],grid[i][j-1]) * 2
+	return res 
 
 
 
@@ -193,6 +194,7 @@ if __name__ == '__main__':
 	# print isPalindrome(121)
 	# print smallestRangeI([1,3,6],3)
 	# print arrangingCoins(5)
-	print binaryGap(8)
+	# print binaryGap(8)
+	surfaceArea([[1,0],[0,2]])
 
 
