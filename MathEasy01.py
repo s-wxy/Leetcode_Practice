@@ -186,12 +186,24 @@ def surfaceArea01(grid):
 	W = len(grid[0])
 	H = len(grid)
 	cnt = 0
-	for in range(H):
+	for i in range(H):
 		cnt += grid[i][0]
 		for j in range(1,W):
 			cnt += abs(grid[i][j]-grid[i][j-1])
 		cnt += grid[i][W-1]
-	
+
+	for j in range(W):
+		cnt += grid[0][j]
+		for i in range(H):
+			cnt += abs(grid[i][j]-grid[i-1][j])
+		cnt += grid[H-1][j]
+		
+	for i in range(H):
+		for j in range(W):
+			if grid[i][j]:
+				cnt += 2
+	return cnt 
+
 
 
 
