@@ -11,6 +11,7 @@ bitwise operator, https://wiki.python.org/moin/BitwiseOperators
 5, Prime Number of Set Bits in Binary Representation
    recall - number of set bits an integer has is the number of 1s present when written in binary
 6, Binary Number with Alternating Bits
+7, Letter Case Permutation 
 
 '''
 
@@ -100,6 +101,22 @@ def countPrimeSetBits01(L, R):
 def hasAlternatingBits(n):
 	return "11" not in bin(n) and "00" not in bin(n)
 
+# 7, Letter Case Permutation 
+def letterCasePermutation(S):
+	res = [""]
+	for s in S:
+		if not s.isalpha():
+			for i in range(len(res)):
+				res[i] += s
+		else:
+			for i in range(len(res)):
+				tmp = res[i]
+				res[i] += s.lower()
+				res.append(tmp + s.upper())
+	return res
+
+
+
 
 if __name__ == '__main__':
 
@@ -111,7 +128,8 @@ if __name__ == '__main__':
 	# print findTheDifference01("abcd","abecd")
 	# print countPrimeSetBits(990, 1048)
 	# print countPrimeSetBits00(990, 1048)
-	print hasAlternatingBits(11)
+	# print hasAlternatingBits(11)
+	print letterCasePermutation("a1b2")
 
 
 
