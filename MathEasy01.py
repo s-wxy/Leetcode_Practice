@@ -10,6 +10,7 @@
 8, Smallest Range I
 9, Arranging Coins
 10, Binary Gap 
+11, Surface Area of 3D Shapes 
 
 '''
 
@@ -170,6 +171,16 @@ def binaryGap01(N):
 def binaryGap02(N):
 	# use & to find if bin(N) only have one '1'
 	return max(len(c) for c in bin(N)[2:].strip('0').split('1') + 1 if N & (N-1) else 0)
+
+# 11, Surface Area of 3D Shapes 
+def surfaceArea(grid):
+	n,res = len(grid),0
+	for i in range(n):
+		for j in range(n):
+			if grid[i][j]: res += 2+grid[i][j]*4
+			if grid[i]:res += min()
+			if grid[j]:
+
 
 
 
