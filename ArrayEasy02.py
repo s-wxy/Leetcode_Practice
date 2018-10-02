@@ -10,6 +10,8 @@
 18, Max Consecutive Ones
 19, Sort Array By Parity
 20, Maximum Average Subarray I
+21, Find All Numbers Disappeared in an Array
+22, Max Area of Island 
 
 '''
 
@@ -158,6 +160,47 @@ def findMaxAverage01(nums,k):
 		if temp > maxi:
 			maxi = temp 
 	return float(maxi) / float(k) 
+
+# 21, Find All Numbers Disappeared in an Array
+def findDisappearedNumbers(nums):
+	# Time Limit Exceeded
+	res = []
+	for i in range(len(nums)):
+		n = i + 1
+		# we should have set(nums) outside the loop to reduce complexity
+		if n not in set(nums):
+			res.append(n)
+	return res 
+
+def findDisappearedNumbers01(nums):
+	if len(nums) == 0: return nums
+	b,c = set(nums), []
+	for i in range(1,len(nums)+1):
+		if i not in b:
+			c.append(i)
+	return c
+
+
+def findDisappearedNumbers02(nums):
+	return list(set(range(1, len(nums)+1)) - set(nums))
+
+def findDisappearedNumbers03(nums):
+	for i in range(len(nums)):
+		idx = abs(nums[i]) - 1
+		nums[idx] = - abs(nums[idx])
+	return [i+1 for i in range(len(nums)) if nums[i] > 0]
+
+# 22, Max Area of Island 
+def maxAreaOfIsland(grid):
+	m,n = len(grid),len(grid[0])
+	def dfs(i,j):
+		if 0 <= i < m and 0 <= j <= n and grid[i][j]:
+			grid[i][j] = 0 
+		return 1 + dfs(i-1,j) + dfs(i+1,j) + dfs(i,j-1) + dfs(i,j+1)
+	return 0 
+
+	areas = [dfs(i,j) for i in range(m) for j in range(n) if grid[i][j]]
+	return max(areas) if areas else 0 
 
 
 if __name__ == '__main__':

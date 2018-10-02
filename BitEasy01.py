@@ -115,8 +115,51 @@ def letterCasePermutation(S):
 				res.append(tmp + s.upper())
 	return res
 
+def letterCasePermutation01(S):
+	if not S: return [""]
+	index = -1
+	for i in range(len(S)):
+		if S[i].isalpha():
+			index = i
+			break
+	if index == -1:
+		return [S]
+	else:
+		tmp = seld.letterCasePermutation01(S[index+1:])
+		res = []
+		for s in tmp:
+			res.append(S[:index]+S[index].lower()+s)
+			res.append(S[:index]+S[index].upper()+s)
+		return res 
 
+def letterCasePermutation02(S):
+	# seapcase(), change lower(upper) to upper(lower)
+	res = [S]
+	for i,c in enumerate(S):
+		if c.isalpha():
+			res.extend([s[:i] + s[i].swapcase() + s[i+1:] for s in res])
+	return res 
 
+def letterCasePermutation3(S):
+	# use stack
+	S = list(S)
+	solutions = ['']
+	while S:
+		last = S.pop()
+		if last.isalpha():
+			solutions = [last.lower() + x for x in solutions] + [last.upper() + x for x in solutions]
+		else:
+			solutions = [last + x for x in solutions]
+	return solutions 
+
+def letterCasePermutation04(S):
+	res = ['']
+	for ch in S:
+		if ch.isalpha():
+			res = [i+j for i in res for j in [ch.upper(),ch.lower()]]
+		else:
+			res = [i+ch for i in res]
+	return res 
 
 if __name__ == '__main__':
 
