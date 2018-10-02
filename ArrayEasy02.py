@@ -202,6 +202,29 @@ def maxAreaOfIsland(grid):
 	areas = [dfs(i,j) for i in range(m) for j in range(n) if grid[i][j]]
 	return max(areas) if areas else 0 
 
+def maxAreaOfIsland01(self,grid):
+
+	ret = 0
+	for i in range(len(grid)):
+		for j in range(len(grid[0])):
+			if grid[i][j] == 1:
+				n = self.findSize(grid,i,j)
+				if n > ret:
+					ret = n
+	return ret 
+def findSize(self,grid,i,j):
+	grid[i][j],n = 0,1
+	if i-1 >= 0 and grid[i-1][j] == 1:
+		n += self.findSize(grid,i-1,j)
+	if i+1 < len(grid) and grid[i+1][j] == 1:
+		n += self.findSize(grid,i+1,j)
+	if j-1 >= 0 and grid[i][j-1] == 1:
+		n += self.findSize(grid,i,j-1)
+	if j+1 < len(grid) and grid[i][j+1] == 1:
+		n += self.findSize(grid,i,j+1)
+	return n 
+
+
 
 if __name__ == '__main__':
 
