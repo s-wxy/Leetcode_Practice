@@ -8,6 +8,7 @@
 21, Student Attendance Record I
 22, Most Common Word
 23, Baseball Game 
+24, Reverse Only Letters 
 
 '''
 
@@ -167,6 +168,16 @@ def calPoints(ops):
 			history.append(int(op))
 	return sum(history)
 
+# 24, Reverse Only Letters
+def reverseOnlyLetters(S):
+	i,j = 0,len(S)-1
+	S = list(S)
+	while i < j:
+		while i < j and not S[i].isalpha(): i += 1
+		while i < j and not S[j].isalpha(): j -= 1
+		if i < j: S[i], S[j] = S[j], S[i]
+		i, j = i + 1, j - 1
+	return "".join(S) 
 
 
 if __name__ == '__main__':
@@ -179,5 +190,6 @@ if __name__ == '__main__':
 	# print firstUniqChar("eee")
 	# print checkRecord('PPALLL')
 	# mostCommonWord("Bob hit a ball, the hit BALL flew far after it was hit.",["hit"])
-	print calPoints(["5","2","C","D","+"])
+	# print calPoints(["5","2","C","D","+"])
+	print reverseOnlyLetters("a-bC-dEf-ghIj")
 
