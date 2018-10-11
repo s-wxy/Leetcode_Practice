@@ -189,7 +189,7 @@ if __name__ == '__main__':
 	# print canConstrcut("","")
 	# print firstUniqChar("eee")
 	# print checkRecord('PPALLL')
-	# mostCommonWord("Bob hit a ball, the hit BALL flew far after it was hit.",["hit"])
+	# print mostCommonWord("a, a, a, a, b, b, b, c, c" ,["a"])
 	# print calPoints(["5","2","C","D","+"])
-	print reverseOnlyLetters("a-bC-dEf-ghIj")
+	# print reverseOnlyLetters("a-bC-dEf-ghIj")
 
