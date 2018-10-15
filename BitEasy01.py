@@ -12,6 +12,7 @@ bitwise operator, https://wiki.python.org/moin/BitwiseOperators
    recall - number of set bits an integer has is the number of 1s present when written in binary
 6, Binary Number with Alternating Bits
 7, Letter Case Permutation 
+8, Sum of Two Integers
 
 '''
 
@@ -160,6 +161,26 @@ def letterCasePermutation04(S):
 		else:
 			res = [i+ch for i in res]
 	return res 
+
+# 8, Sum of Two Integers
+def getSum(a,b):
+	list = [a,b]
+	return sum(list)
+
+def getSum01(a,b):
+	# 32 bits interger max
+	M = 0x7FFFFFFF
+	# 32 bits interger min 
+	N = 0x80000000
+	# mask to get last 32 bits 
+	mask = 0xFFFFFFFF
+	while b != 0:
+		# ^ get different bits and & get double 1s, << moves carry 
+		a,b = (a^b) & mask, ((a&b)<<1) & mask
+	# if a is negative, get a's 32 bits complement positive first 
+	# then get 32-bit positive's Python complement negative 
+	return a if a <= M else ~(a^mask)
+
 
 if __name__ == '__main__':
 
