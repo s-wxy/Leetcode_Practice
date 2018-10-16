@@ -138,9 +138,14 @@ def dfs(self, e_node):
 			sub_sum += self.dfs(self.e_dict[e])
 		return sub_sum + e_node.importance
 
-
-
-
+def getImportance02(self, employees, id):
+	emps = {employee.id: employee for employee in employees}
+	def dfs(id):
+		sum = emps[id].importance
+		for sub_id in emps[id].subordinates:
+			sum += dfs[sub_id]
+		return sum 
+	return dfs(id)
 
 
 
