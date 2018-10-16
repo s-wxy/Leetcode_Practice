@@ -7,6 +7,7 @@
 5, Distribute Candies
 6, Island Perimeter
 
+
 '''
 
 # 1, Jeswels and Stones
@@ -142,7 +143,7 @@ if __name__ == '__main__':
 
 	# print numJewelsInStones("aA","aaaaAAC")
 	# print subdomainVisits(["900 google.mail.com", "50 mail.com"])
-	print islandPerimeter([[0, 1, 0, 0], [1, 1, 1, 0], [0, 1, 0, 0], [1, 1, 0, 0]])
-
+	# print islandPerimeter([[0, 1, 0, 0], [1, 1, 1, 0], [0, 1, 0, 0], [1, 1, 0, 0]])
+	print getImportance([[1, 5, [2, 3]], [2, 3, []], [3, 3, []]], 1)
 
 

@@ -5,6 +5,7 @@
 3, N-ary Tree Postorder Traversal, recursion & iterative extend() VS append()
 4, Trim a Binary Search Tree - DFS
 5, Invert Binary Tree - iterative, BFS(queue), DFS(stack)
+6, Employee Importance - DFS
 
 '''
 
@@ -112,6 +113,30 @@ def inverTree02(self,root):
 			node.left, node.right = node.right, node left
 			stack.extend([node.right,node.left])
 	return root 
+
+# 6, Employee Importance
+def getImportance(self, employees, id):
+	d = {e.id:e for e in employees}	
+	ret=0
+	stk=[d[id]] #we can go straight to the employee since we have a map already
+	while stk: 
+		top = stk.pop()
+		ret+=top.importance
+		for n in top.subordinates:
+			stk.append(d[n])
+	return ret
+
+def getImportance01(self, employees, id):
+	self.e_dict = dict()
+	for e in employees:
+		self.e_dict[e.id] = e
+def dfs(self, e_node):
+	if not e_node: return 0
+	else:
+		sub_sum = 0
+		for e in e_node.subordinates:
+			sub_sum += self.dfs(self.e_dict[e])
+		return sub_sum + e_node.importance
 
 
 
