@@ -11,6 +11,7 @@
 9, Arranging Coins
 10, Binary Gap 
 11, Surface Area of 3D Shapes 
+12, Largest Triangle Area
 
 '''
 
@@ -168,9 +169,9 @@ def binaryGap01(N):
 	index = [i for i,v in enumerate(bin(N)) if v == '1']
 	return max([b-a for a,b in zip(index,index[1:])] or [0])
 
-def binaryGap02(N):
+# def binaryGap02(N):
 	# use & to find if bin(N) only have one '1'
-	return max(len(c) for c in bin(N)[2:].strip('0').split('1') + 1 if N & (N-1) else 0)
+	# return max(len(c) for c in bin(N)[2:].strip('0').split('1') + 1 if N & (N-1) else 0)
 
 # 11, Surface Area of 3D Shapes 
 def surfaceArea(grid):
@@ -204,6 +205,20 @@ def surfaceArea01(grid):
 				cnt += 2
 	return cnt 
 
+# 12, Largest Triangle Area 
+def largestTriangleArea(points):
+	def calS(x1,y1,x2,y2,x3,y3):
+		return abs(0.5*(x1*(y2-y3)+x2*(y3-y1)+x3*(y1-y2)))
+	N = len(points)
+	for i in range(N-2):
+		for j in range(i+1,N-1):
+			for k in range(j+1,N):
+				ma = max(ma,calS(points[i][0],points[i][1],points[j][0],points[j][1],points[k][0],points[k][1]))
+	return ma 
+
+def largestTriangleArea01(points):
+	return max(0.5 * abs(i[0] * j[1] + j[0] * k[1] + k[0] * i[1]- j[0] * i[1] - k[0] * j[1] - i[0] * k[1])
+		for i, j, k in itertools.combinations(p, 3))
 
 
 
@@ -218,5 +233,6 @@ if __name__ == "__main__":
 	# print smallestRangeI([1,3,6],3)
 	# print arrangingCoins(5)
 	# print binaryGap(8)
-	print surfaceArea([[2]])
+	# print surfaceArea([[2]])
+	print largestTriangleArea([[0,0],[0,1],[1,0],[0,2],[2,0]])
 
