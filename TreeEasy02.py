@@ -6,6 +6,7 @@
 4, Trim a Binary Search Tree - DFS
 5, Invert Binary Tree - iterative, BFS(queue), DFS(stack)
 6, Employee Importance - DFS
+7, Two Sum IV - Input is a BST
 
 '''
 
@@ -147,6 +148,26 @@ def getImportance02(self, employees, id):
 		return sum 
 	return dfs(id)
 
+# 7, Two Sum IV - Input is a BST
+def findTarget(root, k):
+	if not root: return None
+	bfs,s = [root],set()
+	for i in bfs: 
+		if k-i in s: return True 
+		s.add(i.val)
+		if i.left: bfs.append(i.left)
+		if i.right: bfs.append(i.right)
+	return False 
+
+def findTarget01(root, k):
+	if not root: return False
+	return self._findTarget01(root, set(), k)
+def _findTarget01(self, node, nodes, k):
+	if not root: return False
+	complement = k - node.val
+    if complement in nodes: return True 
+    nodes.add(node.val)
+    return self._findTarget(node.left, nodes, k) or self._findTarget(node.right, nodes, k)
 
 
 
