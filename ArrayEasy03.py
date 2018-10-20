@@ -46,8 +46,37 @@ def intersection02(nums1,nums2):
 	return res
 
 # 25, Intersection of Two Arrays II
+def intersect(nums1,nums2):
+	res = []
+	for i in nums1:
+		if i in nums1 and i in nums2:
+			res.append(i)
+			nums2.remove(i)
+	return res
+
+def intersect01(nums1,nums2):
+	dic = {}
+	ans = []
+	for num in nums1:
+		dic[num] = dic.get(num,0)+1
+	for nums in nums2:
+		if nums in dic and dic[nums]>0:
+			ans.append(nums)
+			dic[nums] -= 1
+	return ans
+
 
 
 if __name__ == '__main__':
 
-	print sortArrayByParityII([4,2,5,7])
+	# print sortArrayByParityII([4,2,5,7])
+	print intersect([1,2,2,1],[2])
+
+
+
+
+
+
+
+
+
