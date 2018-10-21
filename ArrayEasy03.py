@@ -5,6 +5,7 @@
 25, Intersection of Two Arrays II
 Each element in the result should appear as many times as it shows in both arrays.
 26, Two Sum II - Input array is sorted
+27, Remove Element - two pointers 
 
 '''
 
@@ -100,13 +101,39 @@ def twoSum03(numbers,target):
 			else:
 				r = mid-1
 
+# 27, Remove Element
+def removeElement(nums, val):
+	i,j = 0,len(nums)-1 
+	while i <= j:
+		if nums[i] == val:
+			nums[i],nums[j],j = nums[j],nums[i],j-1
+		else: i +=1 
+	return i 
+def removeElement01(nums, val):
+	i = 0 
+	for x in nums:
+		if x != val:
+			nums[i]= x
+			i += 1
+	return i 
+def removeElement01(nums, val):
+	i,n = 0,len(nums)
+	while i < n:
+		if nums[i] == val:
+			nums[i] = nums[n-1]
+			n -= 1
+		else: i+=1
+	return n
+
+
+
 
 if __name__ == '__main__':
 
 	# print sortArrayByParityII([4,2,5,7])
 	# print intersect([1,2,2,1],[2])
-	print twoSum([0,3,0,4],0)
-
+	# print twoSum([0,3,0,4],0)
+	removeElement([3,2,2,3],3)
 
 
 
