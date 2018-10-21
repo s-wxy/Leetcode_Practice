@@ -2,7 +2,8 @@
 '''
 # 1, Middle of the Linked List 
 # 2, Reverse Linked List - iterative, recursive
-
+# 3, Delete Node in a Linked List
+# 4, Remove Linked List Elements
 '''
 
 
@@ -44,3 +45,36 @@ def reverseList01(self, head):
 	if not head: return prev 
 	cur, head.next = head.next, prev 
 	return self.reverseList(curr, head)
+
+# 3, Delete Node in a Linked List
+def deleteNode(self, node):
+	node.val = node.next.val
+	node.next = node.next.next 
+
+# 4, Remove Linked List Elements
+def removeElements(self, head, val):
+	dummy = ListNode(-1)
+	dummy.next = head
+	next = dummy
+	while next != None and next.next != None:
+		if next.next.val == val:
+			next.next = next.next.next
+		else:
+			next = next.next
+	return dummy.next
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

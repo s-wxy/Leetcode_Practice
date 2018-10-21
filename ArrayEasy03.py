@@ -4,7 +4,7 @@
 24, Intersection of Two Arrays
 25, Intersection of Two Arrays II
 Each element in the result should appear as many times as it shows in both arrays.
-
+26, Two Sum II - Input array is sorted
 
 '''
 
@@ -65,12 +65,47 @@ def intersect01(nums1,nums2):
 			dic[nums] -= 1
 	return ans
 
+# 26, Two Sum II - Input array is sorted
+def twoSum(numbers,target): 
+	# - Time Limit Exceeded
+	for i,c in enumerate(numbers):
+		x,rest = target-c,numbers[i+1:]
+		if x in rest: return [i+1,rest.index(x)+i+2]
+def twoSum01(numbers,target): 
+	# two pointers
+	l,r = 0, len(numbers)-1
+	while l<r:
+		s = numbers[l]+numbers[r]
+		if s == target: return [l+1,r+1]
+		elif s < target: l +=1
+		elif s > target: r -=1
+def twoSum02(numbers,target):
+	# dictionary 
+	dic = {}
+	for i, num in enumerate(numbers):
+		if target-num in dic:
+			return[dic[target-num]+1,i+1]
+		dic[num] = i 
+def twoSum03(numbers,target):
+	# binary search 
+	for i in range(len(numbers)):
+		l,r = i+1,len(numbers)-1
+		tmp = target-numbers[i]
+		while l<=r:
+			mid = l+(r-l)//2
+			if numbers[mid]==tmp:
+				return [i+1,mid+1]
+			elif numbers[mid]<tmp:
+				l = mid+1
+			else:
+				r = mid-1
 
 
 if __name__ == '__main__':
 
 	# print sortArrayByParityII([4,2,5,7])
-	print intersect([1,2,2,1],[2])
+	# print intersect([1,2,2,1],[2])
+	print twoSum([0,3,0,4],0)
 
 
 
